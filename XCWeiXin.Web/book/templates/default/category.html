@@ -1,0 +1,69 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+
+<title>{$category.title}</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link href="/css/mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet">   
+<link href="/book/templates/default/css/style.css" rel="stylesheet" />
+   
+<script src="/scripts/jquery.min-1.11.1.js"></script>
+<script src="/scripts/jquery.mobile-1.4.5.min.js"></script>
+<script src="/scripts/TouchSlide.1.1.js"></script>
+</head>
+<body>
+<div data-role="page">
+  <div data-role="header">
+  <div class="slide" id="slide" >
+        <div>
+	 <vt:set var="where" value="classid" id="mwhere" />
+        <vt:foreach from="$albumslist" item="albums" index="i">
+        <a><img src="{$albums.thumb_path}" /></a>
+     </vt:foreach>	
+       </div>   
+    </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.slide').height($('.slide').width()*0.3);	
+	$('.slide').touchslide({timecontrol:3000,animatetime:300,direction:'left',navshow:true,canvassuport:true});
+});
+			</script>
+  </div>
+
+  <div data-role="content">
+ <!--分类信息 -->
+ 
+  <ul data-role="listview" data-inset="true" data-divider-theme="a">
+<li data-role="list-divider" style="color:#F90; padding-left:40px"  class="ui-btn-icon-left ui-icon-carat-r" >预约说明：</li>
+<li style="white-space:pre; color:#333">{$category.class_content}</li>
+
+	</ul>
+    <vt:set var="orderby" value="id asc" id="norderby" />
+<vt:set var="pagesize" value="116" id="npagesize" />
+ <ul data-role="listview" data-count-theme="b" data-inset="true">
+<vt:function var="category" method="getCategory" type="$this" parentid="$cid" />
+ <vt:foreach from="$category" item="c" index="i">
+<li><a href="{$c.link_url}">
+	<img src="{$c.ico_url}">
+<h2>{$c.title}</h2>
+<p style="color:#F90">￥{$product.salePrice}元起</p>
+ <span class="ui-li-count" >预约</span></a>
+</li>
+
+ </vt:foreach>
+
+</ul>
+ <!--分类信息 end -->
+  </div>
+  </div>
+
+</div> 
+</body>
+</html>
+
+

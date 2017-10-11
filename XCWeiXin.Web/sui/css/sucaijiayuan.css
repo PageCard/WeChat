@@ -1,0 +1,11 @@
+*{margin:0;padding:0;list-style-type:none;}
+body{font-family:'microsoft yahei';}
+a{text-decoration:none;}
+.showdiv{color:#fff;padding:0px 0px;background:#2D404C;text-align:center;display:block;width:150px;}
+/* box */
+.showbox{width:0px;height:0px;display:none;position:absolute;right:0;top:0;z-index:100;border:1px #2D404C solid;padding:1px;background:#fff;}
+.showbox h2{height:25px;font-size:14px;background-color:#2D404C;position:relative;padding-left:10px;line-height:25px;color:#fff;}
+.showbox h2 a{position:absolute;right:5px;top:0;font-size:12px;color:#fff;}
+.showbox .mainlist{padding:10px;}
+.showbox .mainlist p{font:normal 14px/2 'microsoft yahei';text-indent:2em;color:#333;padding-top:5px;}
+#zhezhao{background-color:#666;position:absolute;z-index:99;left:0;top:0;display:none;width:100%;height:100%;opacity:0.5;filter: alpha(opacity=50);-moz-opacity: 0.5;}

@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* CSS Document */
+h1,h2,h3,h4,h5,h6{ font-weight:normal;}
+.dtime{}
+.headimg{ width:100%}
+.headimg img{ width:100%}
+.bor-top{border-top:#ddd solid 1px}
+.time-item span{ font-size:80%}

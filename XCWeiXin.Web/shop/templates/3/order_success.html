@@ -1,0 +1,92 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>{$model.productName}</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="/sui/css/sm.css" rel="stylesheet">   
+<link href="/shop/templates/2/css/templates.css" rel="stylesheet" />
+<link href="/shop/templates/2/css/swiper.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="page">
+<header class="bar bar-nav">
+<a class="button button-link button-nav pull-left back"  ><span class="icon icon-left"></span>返回</a>
+<a href="cart.aspx?wid={$wid}" class="icon  pull-right "><span class="infocart icon-cart"> {$cartcount}</span></a>
+<h1 class="title"></h1>
+</header>
+        <!-- 工具栏 -->
+ <vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+        <!-- 工具栏 end-->
+<div class="content">
+  <div class="card">
+    <div class="card-header">下单成功！</div>
+    <div class="card-content">
+      <div class="card-content-inner">订单号：{$order.order_no}
+      <p>总计金额：{$order.real_amount}元</p>
+      <p>下单时间：{$order.add_time format="yyyy-MM-dd HH:mm:ss"}</p>
+      <p>我们将以最快的速度发货</p>
+      </div>
+    </div>
+    <div class="card-footer">
+    <a href=""class="link" id="order_canel">取消订单</a>
+    <a href="order_detail.aspx?wid={$wid}&orderid={$order.id}"class="link">详情</a>
+    <a href="index.aspx?wid={$wid}" class="link">继续逛逛</a>
+    </div>
+	
+
+	
+  </div>	
+   <div class="content-block">
+    
+    <p><a href="/api/payment/wxpay/getopenid.aspx?wid={$wid}&orderid={$order.id}" class="button button-fill button-danger wxpay external" style="height:2rem; line-height:2rem; font-size:1rem">立即付款</a></p>
+  </div>
+</div>
+
+</div>
+
+
+
+<script src="/sui/js/zepto.js"></script>
+<script src="/sui/js/sm.min.js"></script>
+ 
+
+ <script type="text/javascript">
+     $("#bartab03").addClass("active");
+     $("#order_canel").click(function () {
+	 
+	 $.confirm('确定要删除此订单吗?', function () {
+         $.ajax({
+             url: "shopmgr.ashx",
+             dataType: "json",
+             data: { myact: "order_canel", wid: "{$wid}", order_id: '{$order.order_no}', rad: Math.random() },
+             success: function (data) {
+                
+                 if (data.errCode) {
+                     $.toast(data.msg);
+                     //   $.router.load("order_success.aspx?wid=" + data.wid + "&orderid=" + data.orderid + "");
+					 location.href = "/shop/index.aspx?wid={$wid}";
+                 }
+             }
+         })
+});
+     });
+	 
+	 $(document).on('click','.wxpay', function () {
+    $.showPreloader('加载支付中...，马上就好！')
+    setTimeout(function () {
+        $.hidePreloader();
+    }, 3000);
+  });
+</script>
+     
+
+
+</body>
+</html>

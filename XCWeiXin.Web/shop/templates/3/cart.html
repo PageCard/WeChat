@@ -1,0 +1,260 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>购物车</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="/sui/css/sm.css?v=1.0" rel="stylesheet">     
+<link href="/shop/templates/2/css/templates.css" rel="stylesheet" />
+<link href="/shop/templates/2/css/swiper.min.css" rel="stylesheet" />
+</head>
+<body> 
+ <div class="page">
+<header class="bar bar-nav">
+<a class="button button-link button-nav pull-left back"  ><span class="icon icon-left"></span>返回</a>
+<a href="cart.aspx?wid={$wid}" class="icon  pull-right "><span class="infocart icon-gouwuche7"> {$cartcount}</span></a>
+<h1 class="title"></h1>
+</header>
+
+        <!-- 工具栏 -->
+<div class="bar bar-footer-secondary" style=" padding-right:0;">
+<div class="row">
+<div class="col-33" id="allcheckbox">
+<label class="label-checkbox item-content cartlabel">
+<input type="checkbox" name="allcheckbox" id="allcheck">
+<div class="item-media"><h5><i class="icon icon-form-checkbox"></i>　全选</h5></div>
+</label>
+</div>
+<div class="col-33"><h6>合计：<span id="cartcount">0元</span><p>（不含运费）</p></h6></div>
+<div class="col-33 cartjs"><a  style=" color:White" id="confirmorder">去结算</a></div>
+</div>
+
+</div>
+
+ <vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+        <!-- 工具栏 end-->
+        <div class="content">
+        <div class="list-block media-list" style="margin-top:0">
+        <ul id="checklist">
+        <vt:foreach from="$cartlist" item="cproduct" index="i"  >
+        <li class="bbend" id="licartlist{$i}">
+         <div class="card-footer">
+    <h5 class="carttitle"> <a href="{$cproduct.productUrl}">{$cproduct.productName}</a></h5>
+      <h5 class="cartedit{$i}" onClick="CartEdit({$i})"> 编辑</h5>
+      <h5 class="editok{$i}" style=" display:none" onClick="EditOK({$i},{$cproduct.id})"> 完成</h5>
+    </div>
+          <label class="label-checkbox item-content cartlabel checkboxlist"  style="background:#fff">
+            <input type="checkbox" name="checkbox" id="chbox{$i}" value="{$cproduct.totPrice}">
+            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+         
+           <div  class="cartimg" style="width:6rem" ><img src="{$cproduct.productPic}" /></div>
+            <div class="item-inner" id="myitem{$i}" >
+              <div class="item-title-row">
+                <div class="item-title">单价：<span class="avgprice{$i}">{$cproduct.avgPrice}</span>元</div>               
+              </div>
+              <div class="item-subtitle">{$cproduct.fskuInfo}</div>
+              <div class="item-text">数量：<span class="productNumedit{$i}">{$cproduct.productNum}</span>　共计：￥<span class="totPriceedit{$i}">{$cproduct.totPrice}</span>元</div>              
+            </div>
+<!--数量编辑-->
+ <div id="newedit{$i}" style=" display:none">
+<input class="min" name="" type="button" id="{$i}" value="─" style=" float:left; width:30%;height:2rem" />
+<input class="salePriceNum" name="" type="text" value="{$cproduct.productNum}" style="border:#ddd solid 1px; width:30%; float:left; height:2rem; text-align:center"/> 
+<input class="add" name="" type="button" id="{$i}" value="╋" style=" float:left; width:30%;height:2rem" /> 
+<div class="newcartsku">
+<h5 style=" line-height:1.2rem">共计：<span class="newtotPrice{$i}">{$cproduct.totPrice}</span>元</h5>
+<h5 style=" line-height:1.2rem" >{$cproduct.fskuInfo}</h5>
+<div class="item-text" style="margin-right:0.5rem"><a href="#" class="button button-danger button-fill delcart" id="{$i}" cid="{$cproduct.id}">删除</a></div>
+</div>
+ </div>
+ <!--数量编辑 end -->
+          </label>
+        </li>
+        </vt:foreach>
+        </ul>
+       </div>
+
+        </div>
+
+        </div>
+       
+ 
+
+<script src="/sui/js/zepto.js"></script>
+<script src="/sui/js/sm.min.js"></script>
+ 
+
+ <script type="text/javascript">
+     $("#bartab03").addClass("active");
+  
+ //判断购物车是否为空
+ var cartStr=JSON.stringify('{$cartStr}');
+if(cartStr.length<5)
+  {
+  $(".bar-footer-secondary").hide();
+  $(".content").html("<p style='line-height:2rem; text-align:center'>购物车是空的哦！</p>");
+  }
+  
+     var cartCount = 0;
+     //全选
+     $("#allcheckbox").click(function () {
+         var ischeck = $("#allcheck").attr("checked"); 
+		
+         if (ischeck == true) {
+             $("input[name='checkbox']").prop("checked", "checked");
+         } else {
+             $("input[name='checkbox']").prop("checked", "");
+			 
+             cartCount = 0;
+         }
+         GetCheckboxCount();
+     });
+
+     //单选时
+     $(".checkboxlist").change(function () {
+         GetCheckboxCount();
+     });
+
+ //统计checkbox的值
+        function GetCheckboxCount() { 
+		cartCount = 0
+            $("#checklist input[type=checkbox]").each(function () {
+                if (this.checked) {
+                    cartCount += parseFloat($(this).attr("value"));
+                }
+                else {
+                    cartCount += 0;
+                }               
+            });
+
+        $("#cartcount").text(parseFloat(cartCount).toFixed(2) + "元");
+        }
+        //编辑购物车
+        function CartEdit(id) {
+            $(".editok" + id + "").show();
+            $(".cartedit" + id + "").hide();
+            $("#myitem" + id + "").hide();
+            $("#newedit" + id + "").show();
+
+        }
+        function EditOK(id,ic) {
+            //修改购物车          
+           var bc= $(".productNumedit" + id + "").text();
+            $.ajax({
+                url: "shopmgr.ashx",
+                dataType: "json",
+                data: { myact: "modifyNum", ic: ic, bc: bc, rad: Math.random() },
+                success: function (data) {
+                    if (data.errCode == "false")//修改成功
+                    {
+                      //  $.toast(data.recontent);
+                        $(".cartedit" + id + "").show();
+                        $(".editok" + id + "").hide();
+                        $("#myitem" + id + "").show();
+                        $("#newedit" + id + "").hide();
+						
+						//重新统计价格，合计
+						var totPriceedit = $(".totPriceedit" + id + "").text();               
+						$('#chbox'+id+'').val(totPriceedit);
+						GetCheckboxCount();						
+						//end
+
+                    }
+                    else {    
+                        $.toast("更新失败，请稍后重试！");
+                    }
+
+                }
+            })
+
+
+        }
+
+        //购物车数量+　-
+        $(function () {           
+
+            $(".add").click(function () {
+                var t = $(this).parent().find('input[class*=salePriceNum]');
+                var newnum = parseInt(t.val()) + 1;
+                var id = $(this).attr("id");
+                var Price = $(".avgprice" + id + "").text();
+                t.val(newnum);
+                var countprice = (newnum * parseFloat(Price)).toFixed(2);
+                $(".newtotPrice" + id + "").text(countprice);
+                $(".totPriceedit" + id + "").text(countprice);
+                $(".productNumedit" + id + "").text(newnum);
+            })
+            $(".min").click(function () {
+                var t = $(this).parent().find('input[class*=salePriceNum]');
+                t.val(parseInt(t.val()) - 1)
+                if (parseInt(t.val()) < 1) {
+                    t.val(1);
+                }
+                var newnum = t.val();
+                var id = $(this).attr("id");
+                var Price = $(".avgprice" + id + "").text();
+                t.val(newnum);
+                var countprice = (newnum * parseFloat(Price)).toFixed(2);
+                $(".newtotPrice" + id + "").text(countprice);
+                $(".totPriceedit" + id + "").text(countprice);
+                $(".productNumedit" + id + "").text(newnum);
+            })
+
+        })
+
+        ////删除购物车
+        $(".delcart").click(function () {
+            var cid = $(this).attr("cid");
+            var id = $(this).attr("id");
+            $.ajax({
+                url: "shopmgr.ashx",
+                dataType: "json",
+                data: { myact: "remove", wid: "{$wid}", id: cid, rad: Math.random() },
+                success: function (data) {
+                    if (data.errCode) {
+					//统计购物车数量
+					 $.ajax({
+                url: "shopmgr.ashx",
+                dataType: "json",
+                data: { myact: "pcount", wid: "{$wid}", rad: Math.random() },
+                success: function (data) {                   
+				$(".infocart").html(" "+data.data);
+			 	$(".badge").html(" "+data.data);
+                   
+                }
+            })
+					//end
+                        $.toast("删除成功");
+                        $("#licartlist" + id + "").hide();
+                    }
+                }
+            })
+        })
+
+//结算判断
+ $("#confirmorder").click(function () {
+ var contcart=$("#cartcount").text()
+ if(contcart=="0元")
+ {
+ $.toast("还没有选择商品哦！");
+ }
+ else
+ {
+ $.router.load('confirmOrder.aspx?wid={$wid}', true);
+ }
+ });
+ 
+</script>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</body>
+</html>

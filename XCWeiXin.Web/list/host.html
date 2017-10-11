@@ -1,0 +1,217 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>物料商场</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link href="dist/css/framework7.material.min.css" rel="stylesheet" />
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link href="dist/css/framework7.material.colors.min.css" rel="stylesheet" />
+    <!-- Path to your custom app styles-->
+    <link href="dist/iconfont/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="zan/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="zan/css/default.css">
+    <link rel="stylesheet" type="text/css" href="zan/css/style.css" />
+    <link href="dist/css/my-app.css" rel="stylesheet" />
+    <style>
+        .demo-card-header-pic .card-header {
+            height: 50vw;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body class="theme-pink">
+    <!-- Panels Overlay -->
+    <div class=" panel-overlay">
+    </div>
+
+    <!-- Left Panel with Reveal effect -->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p>Left Panel content here</p>
+            <!-- Click on link with "close-panel" class will close panel -->
+            <p><a href="#" class="close-panel">Close me</a></p>
+            <!-- Click on link with "open-panel" and data-panel="right" attribute will open Right panel -->
+            <p><a href="#" data-panel="right" class="open-panel">Open Right Panel</a></p>
+        </div>
+    </div>
+
+    <!-- Right Panel with Cover effect -->
+    <div class="panel panel-right panel-cover">
+        <div class="content-block">
+            <p>Right Panel content here</p>
+            <!-- Click on link with "close-panel" class will close panel -->
+            <p><a href="#" class="close-panel">Close me</a></p>
+            <!-- Click on link with "open-panel" and data-panel="left" attribute will open Left panel -->
+            <p><a href="#" data-panel="left" class="open-panel">Open Left Panel</a></p>
+        </div>
+    </div>
+    <!-- Views -->
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages">
+                <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+                <div data-page="index" class="page toolbar-fixed  ">
+
+
+                    <!-- Top Navbar-->
+                    <!--  <div class="navbar">
+                         <div class="navbar-inner">
+
+                             <div class="center">商城模板</div>
+
+                         </div>
+                     </div>-->
+                    <!-- Bottom Toolbar-->
+                    <div class="toolbar  tabbar  toolbar-bottom">
+                        <div class="toolbar-inner">
+                            <a href="index.html" class="tab-link external">
+                                <i class="axiba icon-fangzi"></i>
+                                <span class="tabbar-label">No.1</span>
+                            </a>
+                            <a href="shop.html" class="tab-link external">
+                                <i class="axiba icon-shoucang1"></i>
+                                <span class="tabbar-label">会场</span>
+                            </a>
+                            <a href="host.html" class="tab-link external active">
+                                <i class="axiba icon-BBDhezi"></i>
+                                <span class="tabbar-label">发现</span>
+                            </a>
+                            <a href="myindex.html" class="tab-link external">
+                                <i class="axiba icon-shezhi1"></i>
+                                <span class="tabbar-label">我的</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /End of Bottom Toolbar-->
+                   
+                    <!-- Search Bar -->
+                    <!-- <form class="searchbar searchbar-init">
+                        <div class="searchbar-input sub">
+                            <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+                        </div><a href="#" class="searchbar-cancel">Cancel</a>
+                    </form>
+
+                    <!-- Search Bar overlay -->
+                    <!-- <div class="searchbar-overlay"></div>-->
+                    <div class="page-content" style="background-color:white">
+                        <div style="position:relative;" >
+                            <img  style=" width:100%;height:11rem"src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503855677811&di=956edf3b64c1af0a4f4657ec44fe8dac&imgtype=0&src=http%3A%2F%2Fn5.cmsfile.pg0.cn%2Fgroup1%2FM00%2F7E%2F24%2FCgqg11ibGt2ANJ33AAEtNZdu-LE804.jpg%3Fenable%3D%26w%3D550%26h%3D300%26cut%3D" alt="" />
+                            <font style="position:absolute;left:50%;top:80%;z-index:2" size="4" color="white"><strong>Page_Load</strong></font>
+                             <div style="position:absolute;left:78%;top:73%;z-index:2">
+                 
+                                <img  style="width:3.5rem;height:3.5rem;   border:0.2px solid #808080" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3615994718,1745783292&fm=26&gp=0.jpg" />
+                            </div>
+                        </div>
+                        <div class="cards" style="margin-top:1.5rem">
+                            <div class="card demo-card-header-pic">
+                                <div style="background-image: url('https://a3.vimage1.com/upload/flow/2017/08/04/63/15018508741178.jpg')" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
+                                <div class="card-content">
+                                    <div class="card-content-inner">
+                                        <p class="color-gray">Posted on January 21, 2015</p>
+                                        <p>微信商城出不上线，留下你的小秘密吧...</p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#" class="link">评论</a>
+                                    <div style="float:left">
+                                        <a style="margin-left:78%;margin-top:-48px;    font-size:10px" class=" heart" id="like1" rel="like"><div class="likeCount" id="likeCount1">14</div></a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card demo-card-header-pic">
+                                <div style="background-image: url('https://a2.vimage1.com/upload/flow/2017/08/25/165/15036549150419.jpg')" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
+                                <div class="card-content">
+                                    <div class="card-content-inner">
+                                        <p class="color-gray">Posted on January 21, 2015</p>
+                                        <p>微信商城出不上线，留下你的小秘密吧...</p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#" class="link">评论</a>
+
+                                    <div style="float:left">
+                                        <a style="margin-left:78%;margin-top:-48px;    font-size:10px" class=" heart" id="like2" rel="like"><div class="likeCount" id="likeCount2">14</div></a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+
+                    <!--contextEND-->
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+
+    <script src="dist/js/framework7.min.js"></script>
+
+    <!-- Path to your app js-->
+    <script src="dist/js/my-app.js"></script>
+
+    <script>
+        // 1 Slide Per View, 50px Between
+        var mySwiper1 = myApp.swiper('.swiper-1', {
+            pagination: '.swiper-1 .swiper-pagination',
+            autoplayDisableOnInteraction: false,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 50,
+            autoplay: 2000
+        });
+        $$('.sub').on('click', function () {
+            window.location.href = "search.html"
+        });
+
+
+    </script>
+   
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script>window.jQuery || document.write('<script src="zan/js/jquery-1.11.0.min.js"><\/script>')</script>
+    <script>
+        $(document).ready(function () {
+
+            $('body').on("click", '.heart', function () {
+
+                var A = $(this).attr("id");
+                var B = A.split("like");
+                var messageID = B[1];
+                var C = parseInt($("#likeCount" + messageID).html());
+                $(this).css("background-position", "")
+                var D = $(this).attr("rel");
+
+                if (D === 'like') {
+                    $("#likeCount" + messageID).html(C + 1);
+                    $(this).addClass("heartAnimation").attr("rel", "unlike");
+
+                }
+                else {
+                    $("#likeCount" + messageID).html(C - 1);
+                    $(this).removeClass("heartAnimation").attr("rel", "like");
+                    $(this).css("background-position", "left");
+                }
+
+
+            });
+
+
+        });
+    </script>
+</body>
+</html>

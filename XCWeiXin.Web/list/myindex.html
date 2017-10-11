@@ -1,0 +1,235 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>物料商场</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link href="dist/css/framework7.material.min.css" rel="stylesheet" />
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link href="dist/css/framework7.material.colors.min.css" rel="stylesheet" />
+    <!-- Path to your custom app styles-->
+    <link href="dist/iconfont/iconfont.css" rel="stylesheet" />
+
+    <link href="dist/css/my-app.css" rel="stylesheet" />
+    <style>
+        .demo-card-header-pic .card-header {
+            height: 50vw;
+            background-size: cover;
+            background-position: center;
+        }
+        .fontsize {
+            font-size:30px;
+            color:#808080;
+        
+        }
+    </style>
+</head>
+
+<body class="theme-pink">
+    <!-- Panels Overlay -->
+    <div class=" panel-overlay">
+    </div>
+
+    <!-- Left Panel with Reveal effect -->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p>Left Panel content here</p>
+            <!-- Click on link with "close-panel" class will close panel -->
+            <p><a href="#" class="close-panel">Close me</a></p>
+            <!-- Click on link with "open-panel" and data-panel="right" attribute will open Right panel -->
+            <p><a href="#" data-panel="right" class="open-panel">Open Right Panel</a></p>
+        </div>
+    </div>
+
+    <!-- Right Panel with Cover effect -->
+    <div class="panel panel-right panel-cover">
+        <div class="content-block">
+            <p>Right Panel content here</p>
+            <!-- Click on link with "close-panel" class will close panel -->
+            <p><a href="#" class="close-panel">Close me</a></p>
+            <!-- Click on link with "open-panel" and data-panel="left" attribute will open Left panel -->
+            <p><a href="#" data-panel="left" class="open-panel">Open Left Panel</a></p>
+        </div>
+    </div>
+    <!-- Views -->
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages">
+                <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+                <div data-page="index" class="page toolbar-fixed  ">
+
+
+                    <!-- Top Navbar-->
+                    <!--  <div class="navbar">
+                         <div class="navbar-inner">
+
+                             <div class="center">商城模板</div>
+
+                         </div>
+                     </div>-->
+                    <!-- Bottom Toolbar-->
+                    <div class="toolbar  tabbar  toolbar-bottom">
+                        <div class="toolbar-inner">
+                            <a href="index.html" class="tab-link external active">
+                                <i class="axiba icon-fangzi"></i>
+                                <span class="tabbar-label">No.1</span>
+                            </a>
+                            <a href="shop.html" class="tab-link external">
+                                <i class="axiba icon-shoucang1"></i>
+                                <span class="tabbar-label">会场</span>
+                            </a>
+                            <a href="host.html" class="tab-link external ">
+                                <i class="axiba icon-BBDhezi"></i>
+                                <span class="tabbar-label">发现</span>
+                            </a>
+                            <a href="myindex.html" class="tab-link external">
+                                <i class="axiba icon-shezhi1"></i>
+                                <span class="tabbar-label">我的</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /End of Bottom Toolbar-->
+                    <!-- Speed Dial Wrap -->
+                    <div class="speed-dial" style="padding-bottom:4rem">
+                        <!-- FAB inside will open Speed Dial actions -->
+                        <a href="#" class="floating-button">
+                            <!-- First icon is visible when Speed Dial actions are closed -->
+                            <i class="icon icon-plus"></i>
+                            <!-- Second icon is visible when Speed Dial actions are opened -->
+                            <i class="icon icon-close"></i>
+                        </a>
+                        <!-- Speed Dial Actions -->
+                        <div class="speed-dial-buttons">
+                            <!-- First Speed Dial button -->
+                            <a href="#">
+                                <i class="icon icon-email"></i>
+                            </a>
+                            <!-- Second Speed Dial  button -->
+                            <a href="#">
+                                <i class="icon icon-calendar"></i>
+                            </a>
+                            <!-- Third Speed Dial  button -->
+                            <a href="#">
+                                <i class="icon icon-upload"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- /End of Top Navbar-->
+                    <!-- Search Bar -->
+                    <!-- <form class="searchbar searchbar-init">
+                        <div class="searchbar-input sub">
+                            <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+                        </div><a href="#" class="searchbar-cancel">Cancel</a>
+                    </form>
+
+                    <!-- Search Bar overlay -->
+                    <!-- <div class="searchbar-overlay"></div>-->
+                    <div class="page-content" style="background-color: white">
+                    <div style="border-bottom:0.01rem solid #d9c9c9; height: 10rem; width: 100%; background: url('https://ms2-m.vipstatic.com/static/base/img/18435154.user-non-login-bg.png') no-repeat; background-size:100%">
+                        <center style="padding-top:3rem"><img style="border: 0.2px solid #808080; border-radius:1.8rem 1.8rem ;width:3.6rem;height:3.6rem" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3615994718,1745783292&fm=26&gp=0.jpg"  /></center>
+                        <center><font>Page_Load</font></center>
+                    </div>
+                        <div class="row" style="background-color: white; height: 6rem; border-bottom: 0.01rem solid #d9c9c9">
+                            <div class="col-33">
+                              <center style="padding-top:10%"><i class="axiba icon-xinyongqia fontsize"></i></center>
+                               <center><font color="#808080">待付款</font></center>
+                            </div>
+                            <div class="col-33">
+                                <center style="padding-top:10%"><i class="axiba icon-tongzhicundan fontsize"></i></center>
+                                <center><font color="#808080">未完成</font></center>
+                            </div>
+                            <div class="col-33">
+                                <center style="padding-top:10%"><i class="axiba icon-suiyicun fontsize"></i></center>
+                                <center><font color="#808080">已完成</font></center>
+                            </div>
+                        </div>
+                        <div class="list-block" style="margin-top:1rem">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><i class="axiba fontsize icon-gouwuche1"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title"><font color="#808080">购物车</font></div>
+                                            <div class="item-after"><span class="badge bg-red">5</span></div>
+                                        </div>
+                                    </a>
+                                    
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><i class="axiba fontsize icon-tubiaozitihua09"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title"><font color="#808080">商家通知</font></div>
+                                            <div class="item-after"><span class="badge bg-green" >5</span></div>
+                                        </div>
+                                    </a>  
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><i class="axiba fontsize icon-yonghuming8"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title open-popover " data-popover=".popover-about"><font color="#808080">关于我们</font></div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--<div class="list-block-label">List block label text goes here</div>-->
+                        </div>
+                       
+                    </div>
+
+                    <!--contextEND-->
+
+                    <!-- About popover -->
+                    <div class="popover popover-about">
+                        <div class="popover-angle"></div>
+                        <div class="popover-inner">
+                            <div class="content-block">
+                                <p>关于我们</p>
+                                <p>微信开发，小程序开发，网站开发，app开发</p>
+                                <p>联系我们：18112335130</p>
+                                <p>邮箱：1432980873@qq.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+
+    <script src="dist/js/framework7.min.js"></script>
+
+    <!-- Path to your app js-->
+    <script src="dist/js/my-app.js"></script>
+
+    <script>
+        // 1 Slide Per View, 50px Between
+        var mySwiper1 = myApp.swiper('.swiper-1', {
+            pagination: '.swiper-1 .swiper-pagination',
+            autoplayDisableOnInteraction: false,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 50,
+            autoplay: 2000
+        });
+        $$('.sub').on('click', function () {
+            window.location.href = "search.html"
+        });
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>搜索</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="/sui/css/sm.css?v=1.0" rel="stylesheet">   
+<link href="/shop/templates/3/css/templates.css?v=1.12" rel="stylesheet" />
+
+<script src="/sui/js/zepto.js"></script>
+  <script src="/sui/js/sm.min.js"></script>
+
+
+<style type="text/css">
+      .infinite-scroll-preloader {
+        margin-top:-20px;
+      }
+      </style>
+
+</head>
+<body> 
+
+    <div id="page-infinite-scroll-bottom" class="page">
+	
+	<header class="bar" style=" height:2.5rem">
+  <!--搜索-->
+            <div class="content-padded" style="margin-top:0.2rem">
+			<div class="row">
+                <div class="search-input col-75" >
+                    <input type="search" id='search' placeholder='输入关键字...' style="width:102%; " />
+                    <input type="hidden" id='wid' value="{$wid}" />
+                </div>
+                <a class="button button-fill button-primary col-25 searchbnt external" style="line-height:1.5rem"><span class="icon icon-search pull-left" style="line-height:1.5rem"></span>搜索</a>
+				</div>
+            </div>
+            <!--搜索end-->
+</header>
+	
+    <vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+        <div class="content" style="margin-top:0.8rem; background:#fff">
+			
+        <!-- 添加 class infinite-scroll 和 data-distance  向下无限滚动可不加infinite-scroll-bottom类，这里加上是为了和下面的向上无限滚动区分-->
+        <div class="content-block infinite-scroll infinite-scroll-bottom" >
+            <div class="list-block" style="margin-top:0;padding-top:0">
+                <div class="row" style="margin-top:1rem; padding-bottom:1rem"></div>
+            </div>
+            <!-- 加载提示符 -->
+            <div class="infinite-scroll-preloader">
+                <div class="preloader">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script src="/sui/js/sm.min.js"></script>
+ 
+    <script>
+        var maxcount = 0;
+        var G_pagesize = 4;
+        var ss = 1;
+		
+        getajax(ss);
+        function getajax(pageid) {
+          
+      $.ajax(
+        {
+    url: "shopmgr.ashx",
+    data: { myact: "so", key: "{$soStr}", pagesize: G_pagesize, currPage: pageid, wid: "{$wid}", rad: Math.random() },
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    async: false,
+    cache: false,
+    success: function (data) {
+        var html="";
+        if(data==null)
+        {            
+            html += '<p  style="text-align:center">没有找关键词‘{$soStr}’的信息</p>';
+            $('.infinite-scroll-preloader').remove();
+        }
+        else
+        {
+		 maxcount = data.ds[0].p_count;
+            for (var i = 0; i < data.count; i++) {
+                var imgstr = "";
+                if (data.ds[i].productpic != "")
+                    imgstr = data.ds[i].productpic;
+                else
+                    imgstr = "/images/noneimg.jpg";
+                html += '<div class="col-50 indexproductlist_1" id="productDiv">';
+                html+= '<a href=".link_url" class="external">';
+                html += '<div class="item-media"><img src="' + imgstr + '" /></div>';
+                html += '<h5 class="IPL_name" style="min-height:2rem">'+data.ds[i].productName+'</h5>';
+                html += '<h5 class="IPL_summary">' + data.ds[i].shortDesc + '</h5>';
+                html += '<p class="IPL_price" style="line-height:0.8rem; height:1.5rem">￥' + data.ds[i].salePrice + '元</p>';
+                html+= '<p class="button button-fill button-danger" style="height:1.7rem; line-height:1.7rem; margin-bottom:0.5rem">立即购买 <span class="icon icon-gouwuche9 pull-right"></span></p>';
+                html+='</a></div>';
+            }            
+        }
+        // 添加新条目
+        $('.infinite-scroll-bottom .row').append(html);
+		
+		//不够一页时
+		if(G_pagesize>=maxcount)
+		{
+		 $('.infinite-scroll-preloader').remove();   // 删除加载提示符
+                  return;
+		}
+		
+    },
+    error: function (x, e) {
+        alert("err");
+    }
+        }
+        );
+                }
+    </script>
+
+    <script src="/sui/js/shop.js"></script>
+
+</body>
+</html>

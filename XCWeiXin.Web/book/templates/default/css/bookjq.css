@@ -1,0 +1,11 @@
+﻿body, p, input, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form { margin: 0; padding: 0; list-style: none; vertical-align: middle; font-weight:normal; color:#515151}
+img { border:0; margin: 0; padding: 0;   }
+body { color: #000; -webkit-user-select: none; -webkit-text-size-adjust: none; font:normal 16px/200% "微软雅黑", helvetica, arial; text-align:left;   }
+header, section, footer { display: block; margin: 0; padding: 0 }
+a{text-decoration:none;color:#000;}
+
+.slide{width:100%;position: relative;margin:0 auto;}
+
+/*首页网格*/
+.grid{ margin:0 auto; text-align:center; border-top: #eaeaea solid 1px; border-left:#eaeaea solid 1px; padding-top:50px; padding-bottom:20px}
+.grid p{ color:#000}

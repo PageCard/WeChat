@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>数量加减</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.Spinner.js"></script>
+
+<style type="text/css">
+body{background:#f0fdf0;}
+.center{width:268px;margin:50px auto;text-align:center;}
+.center h3{font-size:14px;height:40px;margin:40px 0 0 0;}
+.Spinner{display:block;overflow:hidden;width:100px;margin:0 auto 15px auto;}
+.Spinner .Amount{width:36px;height:17px;padding:4px 5px;line-height:17px;border-width:1px 0;border-style:solid;border-color:#d9d9d9;float:left;text-align:center;color:#565656;outline:0;}
+.Spinner a{display:inline-block;width:25px;height:25px;border:1px solid #d9d9d9;background-color:#f7f7f7;float:left;cursor:pointer;outline:0;}
+.Spinner a i{font-style:normal;background:url(images/BuynBtn.png) no-repeat;display:block;width:9px;height:9px;margin:8px;text-indent:999999%;overflow:hidden;}
+.Spinner .Decrease i{background-position:-9px -9px;}
+.Spinner .Increase i{background-position:-9px -0px;}
+.Spinner .DisDe i{background-position:-0px -9px;}
+.Spinner .DisIn i{background-position:-0px -0px;}
+</style>
+
+<script type="text/javascript">
+$(function(){
+
+	$("#a").Spinner({value:868, min:10, len:3, max:1000});
+	
+	$("#b").Spinner({value:99});
+	
+	$("#c").Spinner({value:66});
+	
+	$("#d").Spinner();
+	
+});
+</script>
+</head>
+
+<body>
+
+    <div class="center">
+	
+    	<h3>设置：最大值和最小值</h3>
+        <div id="a" class="Spinner"></div>
+		
+		<h3>设置：默认值99</h3>
+        <div id="b" class="Spinner"></div>
+		
+		<h3>设置：默认值99</h3>
+        <div id="c" class="Spinner"></div>
+		
+		<h3>设置：最大值不能超过99</h3>
+        <div id="d" class="Spinner"></div>
+    
+    </div>
+    
+</body>
+</html>

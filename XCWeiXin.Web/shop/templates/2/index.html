@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{$shopconfig.shopName}</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="/sui/css/sm.css?v=1.1" rel="stylesheet">   
+<link href="/shop/templates/2/css/templates.css?v=1.22" rel="stylesheet" />
+<script src="/scripts/jquery.min-1.11.1.js"></script>
+<script src="/sui/js/zepto.js"></script>
+<script src="/sui/js/sm.min.js"></script>
+<script src="/sui/js/shop.js?v=1.0"></script>
+
+</head>
+<body> 
+  
+        <div class="page">
+<vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+
+        <div class="content">
+        
+            <!--焦点图片-->
+           <div class="slider">
+		   <ul>
+            <vt:set var="where" value="shopsettingId" id="mwhere" />
+            <vt:foreach from="$albumslist" item="albums" index="i">
+             <li>
+			 <a href="" target="_blank"><img src="{$albums.original_path}" /></a>
+			 </li>
+            </vt:foreach>
+            </ul>  
+            </div>
+			<script src="/scripts/yxMobileSlider.js?v=1.0"></script>
+
+            <script>jQuery(".slider").yxMobileSlider({width:window.screen.width,height:(document.body.clientHeight*0.4),during:3000})</script>
+            <!--焦点图片 end-->
+			 <div class="clear" ></div>
+			<!--搜索-->
+            <div class="searchbar  content-padded" style=" margin-top:0.2rem">
+			<div class="row">
+                <div class="search-input col-75" >
+                    <input type="search" id='search' placeholder='输入关键字...' style="width:102%; height:1.8rem " />
+                    <input type="hidden" id='wid' value="{$wid}" />
+                </div>
+                <a class="button button-fill button-primary col-25 searchbnt external" style=" height:1.8rem;line-height:1.8rem"><span class="icon icon-search pull-left" style="line-height:1.8rem"></span>搜索</a>
+				</div>
+            </div>
+            <!--搜索end-->
+            <div class="clear" ></div>
+			<!--分类-->
+<div style="margin-top:0.5rem; " >
+			<nav class="bar bar-tab" style=" position:relative; height:3.5rem">
+	<vt:function var="classlist" method="getclasslist" type="$this" parentid="0" top="4" />
+            <vt:foreach from="$classlist" item="c" index="i">           
+            <vt:if var="c.class_layer" value="1"> 			
+	<a class="tab-item external active" href="/shop/category.aspx?wid={$wid}&cid={$c.id}&openid={$openid}" style="font-size:1.2rem">
+    <span class="icon {$c.img_url}" style="font-size:1.8rem; line-height:2rem; color:#CC3300;"></span>
+    <span class="tab-label" style="font-size:0.7rem; line-height:1.5rem; color:#000000; overflow:hidden; height:1.5rem">{$c.title}</span>
+  </a>
+
+  </vt:if>
+  </vt:foreach>  
+  </nav>
+ </div>
+ <!--最新产品-->           
+			 <div class="indexbox_1" >            
+           <div class="content-padded " >
+           <div class="indexTitle_1">新品上线<p><a href="/shop/category.aspx?wid={$wid}&cid={$c.id}&openid={$openid}" external>MORE</a></p></div>
+           <div class="row" style="margin-top:1rem; padding-bottom:1rem">
+            <vt:function var="prs" method="ProductIndexPage" type="$this" cid="0" orderby=" id asc" top="6" where=" and latest=1"  />
+            <vt:foreach from="$prs" item="prs" index="i">           
+            <div class="col-50 indexproductlist_1">
+            <a href="{$prs.link_url}"  class="external">
+            <div class="item-media"><img src="<vt:if var='prs.productpic' value=''>/images/noneimg.jpg<vt:else>{$prs.productpic}</vt:if>" /></div>
+            <h5 class="IPL_name">{$prs.productName}</h5>
+            <h5 class="IPL_summary">{$prs.shortDesc}&nbsp;</h5>
+            <p class="IPL_price" style="line-height:0.8rem; height:1.5rem">￥{$prs.salePrice}元</p>
+			<p class="button button-fill button-danger" style="height:1.7rem; line-height:1.7rem; margin-bottom:0.5rem">立即购买 <span class="icon icon-gouwuche9 pull-right"></span></p>
+            </a>
+            </div>           
+            </vt:foreach>
+             </div></div>
+			 
+			  </div>
+              
+           
+            
+            <!--最新产品 end-->
+            <div class="clear"></div>
+			<div><img src="/shop/templates/2/images/1.jpg" style="width:100%" /></div>
+			 
+            <!--模块1-->
+			 <div class="indexbox_1" >
+            <!--自定义商品列表-->
+           <div class="content-padded " >
+           <div class="indexTitle_1">在线商品<p><a href="/shop/category.aspx?wid={$wid}&cid={$c.id}&openid={$openid}" external>MORE</a></p></div>
+           <div class="row" style="margin-top:1rem; padding-bottom:1rem">
+            <vt:function var="prs" method="ProductIndexPage" type="$this" cid="0" orderby=" id asc" top="20"  where=" and latest=0" />
+            <vt:foreach from="$prs" item="prs" index="i">           
+            <div class="col-50 indexproductlist_1">
+            <a href="{$prs.link_url}"  class="external">
+            <div class="item-media"><img src="<vt:if var='prs.productpic' value=''>/images/noneimg.jpg<vt:else>{$prs.productpic}</vt:if>"  /></div>
+            <h5 class="IPL_name" style="min-height:2rem">{$prs.productName}</h5>
+            <h5 class="IPL_summary">{$prs.shortDesc}&nbsp;</h5>
+            <p class="IPL_price" style="line-height:0.8rem; height:1.5rem">￥{$prs.salePrice}元</p>
+			<p class="button button-fill button-danger" style="height:1.7rem; line-height:1.7rem; margin-bottom:0.5rem">立即购买 <span class="icon icon-gouwuche9 pull-right"></span></p>
+            </a>
+            </div>           
+            </vt:foreach>
+             </div></div>
+			 
+			  </div>
+              
+            <!--自定义商品列表 end-->
+            
+            <!--模块1 end-->
+            <div class="clear"></div>
+           
+        
+        </div>
+        </div>
+
+<script>
+    $("#bartab01").addClass("active");
+</script>
+
+</body>
+</html>

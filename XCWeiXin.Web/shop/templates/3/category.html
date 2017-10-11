@@ -1,0 +1,141 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>全部分类</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+<link href="/sui/css/sm.css" rel="stylesheet">   
+<link href="/shop/templates/2/css/templates.css" rel="stylesheet" />
+<link href="/shop/templates/2/css/swiper.min.css" rel="stylesheet" />
+
+<script src="/sui/js/zepto.js"></script>
+<script src="/sui/js/sm.min.js"></script>
+<script src="/scripts/swiper.min.js"></script>
+</head>
+<body>  <div class="page-group">
+        <div class="page">
+<vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+        <div class="content">
+            <div class="buttons-tab">
+            <a href="#tab1" class="tab-link active button">全部</a>
+            <a href="#tab2" class="tab-link button">新品</a>
+            <a href="#tab3" class="tab-link button">热卖</a>
+            </div>
+
+            <div class="">
+            <div class="tabs">
+            <div id="tab1" class="tab active">
+            <div class="">
+             <!--分类信息 全部-->
+                <div class="list-block media-list margin0" >
+                <ul>                   
+                <vt:set var="orderby" value="id desc" id="norderby" />
+				<vt:set var="pagesize" value="50 " id="npagesize" />       
+                <vt:foreach from="$productlist" item="product" index="i">
+                <vt:if var="product.upselling" value="true">
+                <li>
+                    <a href="{$yuming}/shop/detail.aspx?wid={$wid}&pid={$product.id}&openid={$openid}" class="item-content">
+                    <div class="item-media" style=" margin-left:-0.8rem"><img src="{$product.productpic}" style='width: 6.5rem;'></div>
+                    <div class="item-inner">                  
+                    <h5 class="CPL_name">{$product.productName}</h5>
+                    <h5 class="CPL_summary">{$product.shortDesc}&nbsp;</h5>
+                    <div class="item-title-row" style="height:2rem; line-height:2rem">
+                    <h4 class="CPL_price">￥{$product.salePrice}元</h4>
+                  				
+                    </div>
+					<p class="button button-fill button-danger" style="height:1.7rem; line-height:1.7rem">立即购买 <span class="icon icon-gouwuche9 pull-right"></span></p>
+                    </div>
+                    </a>
+                    </li>
+                <vt:else>
+                </vt:if>                               
+                </vt:foreach>              
+                 </ul>
+                    </div>
+      
+               
+                <!--分类信息 end -->
+            </div>
+            </div>
+            <div id="tab2" class="tab">
+            <div class="">
+            <!--分类信息 新品-->
+                <div class="list-block media-list margin0" >
+                <ul>                   
+                <vt:set var="orderby" value="id desc" id="norderby" />
+				<vt:set var="pagesize" value="50" id="npagesize" />       
+                <vt:foreach from="$productlist" item="product" index="i">
+                <vt:if var="product.latest" value="true">
+                <li>
+                    <a href="{$yuming}/shop/detail.aspx?wid={$wid}&pid={$product.id}&openid={$openid}" class="item-content">
+                   <div class="item-media" style=" margin-left:-0.8rem"><img src="{$product.productpic}" style='width: 6.5rem;'></div>
+                    <div class="item-inner">                  
+                    <h5 class="CPL_name">{$product.productName}</h5>
+                    <h5 class="CPL_summary">{$product.shortDesc}&nbsp;</h5>
+                    <div class="item-title-row">
+                    <h4 class="CPL_price">￥{$product.salePrice}元</h4>
+                    <div class="item-after "><h3 class="icon icon-cart CPL_cart"></h3></div>
+                    </div>
+                    </div>                    
+                    </a>
+                    </li>
+                <vt:else>
+                </vt:if>                               
+                </vt:foreach>              
+                 </ul>
+                    </div>
+      
+               
+                <!--分类信息 end -->
+            </div>
+            </div>
+            <div id="tab3" class="tab">
+            <div class="">
+            <!--分类信息 热卖-->
+              <div class="list-block media-list margin0" >
+                <ul>                   
+                <vt:set var="orderby" value="id desc" id="norderby" /><vt:set var="pagesize" value="50" id="npagesize" />       
+                <vt:foreach from="$productlist" item="product" index="i">
+                <vt:if var="product.hotsale" value="true">
+                <li>
+                    <a href="{$yuming}/shop/detail.aspx?wid={$wid}&pid={$product.id}&openid={$openid}" class="item-content">
+                   <div class="item-media" style=" margin-left:-0.8rem"><img src="{$product.productpic}" style='width: 6.5rem;'></div>
+                    <div class="item-inner">                  
+                    <h5 class="CPL_name">{$product.productName}</h5>
+                    <h5 class="CPL_summary">{$product.shortDesc}&nbsp;</h5>
+                    <div class="item-title-row">
+                    <h4 class="CPL_price">￥{$product.salePrice}元</h4>
+                    <div class="item-after "><h3 class="icon icon-cart CPL_cart"></h3></div>
+                    </div>
+                    </div>
+                    </a>
+                    </li>
+                <vt:else>
+                </vt:if>                               
+                </vt:foreach>              
+                 </ul>
+                    </div>
+    
+                <!--分类信息 end -->
+            </div>
+            </div>
+            </div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+
+<script>
+    $("#bartab02").addClass("active");
+</script>
+
+</body>
+</html>
+
+

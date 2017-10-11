@@ -1,0 +1,121 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>订单详情</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="/sui/css/sm.css" rel="stylesheet">   
+<link href="/shop/templates/2/css/templates.css" rel="stylesheet" />
+<link href="/shop/templates/2/css/swiper.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="page">
+<header class="bar bar-nav">
+<a class="button button-link button-nav pull-left back"  ><span class="icon icon-left"></span>返回</a>
+<a href="cart.aspx?wid={$wid}" class="icon  pull-right "><span class="infocart icon-cart"> {$cartcount}</span></a>
+<h1 class="title"></h1>
+</header>
+        <!-- 工具栏 -->
+ <vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+        <!-- 工具栏 end-->
+<div class="content">
+
+<!--订单详情-->
+  <div class="card">
+    <div class="card-header">订单编号：{$order.order_no}</div>
+    <div class="card-header">
+    <h5>状态：{$statusName}</h5>
+    <h5>支付金额：{$order.real_amount}元</h5>
+    </div>
+    <div class="card-content">
+      <div class="list-block media-list">
+        <ul>
+        <vt:foreach from="$order.order_product" item="g" index="j">
+          <li class="item-content">
+            <div class="item-media">
+             <a href="{$yuming}/shop/detail.aspx?wid={$wid}&pid={$g.id}&openid={$openid}"> <img src="{$g.focusImgUrl}" width="44"></a>
+            </div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                <div class="item-title">{$g.productName}</div>
+              </div>
+              <div class="item-subtitle">数量：{$g.stock}  　单价：&yen;{$g.salePrice}元</div>
+            </div>
+          </li>
+            </vt:foreach> 
+        </ul>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span>下单时间：{$order.add_time format="yyyy-MM-dd HH:mm:ss"}</span>     
+    </div>
+    <div class="card-footer">     
+      <span>支付方式：{$paymentName}</span>
+	  
+	  
+	
+	  
+    </div>
+  </div>     
+    <!--优惠-->
+       <div class="card">
+    <div class="card-content">
+      <div class="card-content-inner">
+      <p>商品总价：￥{$order.real_amount}元</p>
+      <p>优惠：-&yen;0.00元</p>
+      <p>运费合计：{$expressName} 　￥{$order.express_fee}元</p>
+     <p>总价：￥{$order.order_amount}元</p>
+      </div>
+    </div>
+  </div>  
+  <!--地址-->
+   <div class="card">
+    <div class="card-header">收货信息</div>
+    <div class="card-content">
+      <div class="card-content-inner">
+      <p>收货地址：{$order.address}</p>
+      <p>收件人：{$order.accept_name} 　TEL：{$order.telphone}</p>
+      </div>
+    </div>   
+  </div>
+    <!--物流-->
+   <div class="card">
+    <div class="card-header">物流公司：{$expressName}</div>
+    <div class="card-content">
+      <div class="card-content-inner">
+      <p>运单号：{$order.express_no}</p>
+     <p><a href="#" class="button button-danger">查询物流状态</a></p>
+      </div>
+    </div>   
+  </div>
+
+
+
+
+</div>
+
+</div>
+
+
+
+<script src="/sui/js/zepto.js"></script>
+<script src="/sui/js/sm.min.js"></script>
+
+<script type="text/javascript">
+     $("#bartab04").addClass("active");
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

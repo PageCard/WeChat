@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<title>{$category.title}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
+<link href="/frozen/css/frozen.css" rel="stylesheet">   
+<link href="/shop/templates/default/css/templates.css" rel="stylesheet" />
+<link href="/shop/templates/default/css/swiper.min.css" rel="stylesheet" />
+<script src="/scripts/swiper.min.js"></script>    <script src="/frozen/lib/zepto.min.js"></script>
+<script src="/frozen/js/frozen.js"></script>
+<script src="/sui/js/sm.min.js"></script><link href="/sui/css/sm.css" rel="stylesheet">  
+</head>
+<body>
+<footer class="ui-footer ui-footer-btn">
+ <vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+    </footer>
+    <section class="ui-container">
+ <!--分类列表 -->
+        <ul class="ui-list ui-list-one ui-list-link ui-border-tb ui-list-active ui-list-cover">
+        <vt:function var="classlist" method="getclasslist" type="$this" parentid="0" />
+        <vt:foreach from="$classlist" item="c" index="i">
+           
+            <vt:if var="c.class_layer" value="1"> 
+            <li class="ui-border-t ui_bjcolor_a" data-href="/shop/category.aspx?wid={$wid}&cid={$c.id}&openid={$openid}">
+            <div class="ui-list-thumb-s"> <span style="background-image:url({$c.ico_url})"></span></div>
+            <div><h4 class="ui-nowrap">{$c.title}</h4></div>  
+            </li>            
+            <vt:elseif value="2">  
+            <li class="ui-border-t" data-href="/shop/category.aspx?wid={$wid}&cid={$c.id}&openid={$openid}">          
+            <div class="ui-list-info list-layer2"><h4 class="ui-nowrap">{$c.title}</h4></div>  
+            </li> 
+            </vt:if>
+            </li>
+        </vt:foreach>
+        </ul>
+        <!--分类列表 end -->
+    </section>
+
+
+    <script>
+        $("#bartab02").addClass("active");
+        $('.ui-list li,.ui-tiled li').click(function () {
+            if ($(this).data('href')) {
+                location.href = $(this).data('href');
+            }
+        });
+        $('.ui-header .ui-btn').click(function () {
+            location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
+
+

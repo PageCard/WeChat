@@ -1,0 +1,23 @@
+﻿<html>
+<head>
+<meta charset="utf-8">	
+<style type="text/css">
+#bg{
+	width: 60px;
+	height: 16px;
+	background: url("img/star_gray.png");
+}
+#over{
+	height:16px;
+	background:url("img/star_org.png") no-repeat;
+}
+</style>
+</head>
+
+<body>
+	<div id="bg"><!--这里是背景，也就是灰色的星星-->
+		<!--说明，这里的width就是设置分数啦，以我写的为例，一个星星的长度是12px，也就是1分12px，如果是4.3分，就是4.3*12px = 51.6px的长度，当然这个一般是取得数据后用js或者其他模板语言去控制的-->
+		<div id="over" style="width:51.6px"></div><!--这里是遮罩，设置宽度以达到评分的效果-->
+	</div>
+</body>
+</html>

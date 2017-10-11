@@ -1,0 +1,14 @@
+.imghot {
+    padding:1px 20%;
+    width:3rem;
+    height:3rem;
+    margin:0.5rem auto;
+}
+.hottext {
+    padding:1px 20%;
+    font-size:10px;
+   text-align:center;
+}
+.bor {
+border-right:1px solid #F2F3F5;
+}

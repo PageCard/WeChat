@@ -1,0 +1,107 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>{$category.title}</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link href="/css/mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet">   
+<link href="/book/templates/default/css/style.css" rel="stylesheet" />
+   
+<script src="/scripts/jquery.min-1.11.1.js"></script>
+<script src="/scripts/jquery.mobile-1.4.5.min.js"></script>
+<script src="/scripts/TouchSlide.1.1.js"></script>
+
+</head>
+<body>
+
+<div data-role="page">
+  <div data-role="header">
+  <div class="slide" id="slide" >
+        <div>
+	 <vt:set var="where" value="classid" id="mwhere" />
+        <vt:foreach from="$albumslist" item="albums" index="i">
+        <a><img src="{$albums.thumb_path}" /></a>
+     </vt:foreach>	
+       </div>   
+    </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.slide').height($('.slide').width()*0.3);	
+	$('.slide').touchslide({timecontrol:3000,animatetime:300,direction:'left',navshow:true,canvassuport:true});
+});
+			</script>
+  </div>
+
+  <div data-role="content">
+  
+  <ul data-role="listview" data-inset="true" data-divider-theme="a">
+<li data-role="list-divider" style="color:#F90; padding-left:40px"  class="ui-btn-icon-left ui-icon-carat-r" >预约说明：</li>
+<li style="white-space:pre; color:#333">{$category.class_content}</li>
+
+	</ul>
+<vt:set var="orderby" value="id asc" id="norderby" />
+<vt:set var="pagesize" value="116" id="npagesize" />
+<ul data-role="listview" data-count-theme="b" data-inset="true">
+<vt:foreach from="$productlist" item="product" index="i">
+<vt:if var="product.upselling" value="true">
+<li><a href="{$yuming}/book/detail.aspx?wid={$wid}&pid={$product.id}&openid={$openid}">
+	<img src="{$product.productpic}">
+<h2>{$product.productName}</h2>
+<p style="color:#F90">￥{$product.salePrice}元</p>
+ <span class="ui-li-count" >预约</span></a>
+</li>
+ <vt:else>
+  </vt:if>
+ </vt:foreach>
+
+</ul>
+  </div>
+
+</div> 
+<div id="detail-info"></div>
+<div><span class="mod_btn btn_block btn_em qb_mr10 flex_box" id="add-cart">加入购物车</span>
+<!-- <span class="mod_btn btn_block btn_strong  flex_box" id="buy-now">立即购买</span>-->
+</div>
+<input type="tel" id="buyNum" value="1">
+     <form action="/book/confirmOrder.aspx" method="get" name="detailForm">
+
+                <input type="hidden" value="" id="bc" name="bc">
+                <input type="hidden" value="" id="attr" name="attr">
+                <input type="hidden" value="" id="mid" name="mid">
+                <input type="hidden" value="{$model.id}" id="ic" name="ic">
+              
+                <input type="hidden" value="{$model.salePrice}" id="totprice" name="totprice"  >
+                <input type="hidden" value="{$wid}" id="wid" name="wid">
+                <input type="hidden" value="{$openid}" id="openid" name="openid">
+            </form>
+    <div class="mod_dialog qb_none" id="message-notice">
+        <div class="dialog_mask"></div>
+        <div class="dialog_main qb_br qb_tac">
+            <div class="dialog_bd" id="notice-content"></div>
+            <div class="dialog_ft qb_flex"><a href="javascript:void(0);" class="flex_box" id="notice-cancel">取消</a>
+                <a href="javascript:void(0);" class="flex_box" id="notice-sure">确定</a></div>
+        </div>
+    </div>
+ <script src="/book/templates/default/js/zepto.min.js"></script>
+ <script src="/book/templates/default/js/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript">
+        var sku, availSku, totalStock, bookEndTime, bookBeginTime, isNew, wxInfo, picLinks, buymaxnum;
+        sku = {$skuStr};
+        availSku = {$availSkuStr};
+        totalStock = '9999';     
+        isNew = "false";
+        wxInfo = { "isFocus": "true", "wxId": "" };
+        buymaxnum = "50";
+        //picLinks = picLinks.replace(/(\s)+/g, "");
+
+        imagesLoaded(document.querySelector('#detail-info'), function (instance) {
+            mobile.o2ocn.detail.init();
+        });
+    </script>
+
+</body>
+</html>

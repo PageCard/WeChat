@@ -1,0 +1,102 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {margin:0;padding:0; list-style:none}
+body{font:normal 14px/1.5 Microsoft YaHei,Helvitica,Verdana,Tohoma,Arial,san-serif;color:#000;-webkit-user-select:none;margin:0 auto;padding:0;list-style:none;vertical-align:middle}
+a {color: #C00; cursor: pointer;text-decoration: none;}
+.vote{ margin: 1em;border-radius: 5em;border: 0.5em solid #eaeaea;}
+.form{}
+.form .votecontent{padding: 2em;}
+.form .votecontent h2{ line-height:3em; text-align:center}
+.form .votecontent .date{ color:#bbb; line-height:5em}
+.form .votecontent .voteimg{ width:100%}
+.form .votecontent .voteimg img{ width:100%}
+.form .votecontent .content{ line-height:2em; padding:1em; text-indent:2em}
+.form .votecontent .modus{text-align:center;}
+.form .line{ height:0.5em; background:#eaeaea; margin-top:1em; margin-bottom:3em}
+.form .list{ width:100%}
+.form .list li{ border:0.3em solid #eaeaea; margin:2em;border-radius: 3em; background:#f1f1f1}
+.form .list li h2{ text-align:center; line-height:3em; background:#CCCC66;border-radius: 1.8em 1.8em 0 0 }
+.form .list li .votepic{ width:100%;margin:3em auto; text-align:center}
+.form .list li .votepic img {min-width:50%;}
+.form .list li .labels{background:#999966; position:relative; padding:1em}
+.form .list li .labels .ckbx{height:3em;}
+.form .list li .labels .labtitle{  position:absolute;z-index:999; top:1em;right:2em; }
+.form .bnt{ height:5em; width:95%; margin:0 auto}
+
+
+ .user{
+	max-width: 50px;
+	font-style:normal;
+	color:#333;
+	margin-left:3px;
+
+}
+ .pbg {
+	height: 10px;
+	background-color:rgba(0, 0, 0, 0.02);
+	box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.07) inset;
+	-moz-box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.07) inset;
+	-webkit-box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.07) inset;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+    border-radius: 6px;
+	 position:absolute; top:1.3em; z-index:999; width:auto; left:50px; right:120px
+}
+ .pbr {
+    background-color: #5AAF4A;
+    border-radius: 6px;
+    height: 10px; font-size:0.1em
+}
+.pxbtn {
+	
+	background: #ff6501;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 )); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #ffa201 , #ff6501 ); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #ffa201 , #ff6501 ); /* IE10 */
+	background-image:      -o-linear-gradient( #ffa201 , #ff6501 ); /* Opera 11.10+ */
+	background-image:         linear-gradient( #ffa201 , #ff6501 );
+	border: 1px solid #ff6501;
+	border-bottom: 1px solid #d35605;
+	color: #ffffff;
+	font-weight: bold;
+	text-shadow: 0 1px 0 #FFFFFF;
+	border-radius: 0.6em 0.6em 0.6em 0.6em;
+	display: block;
+	width: 100%;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	text-align: center;
+	font-weight: bold;
+	text-shadow: 0 0 2px #BE4205;
+	font-size: 18px;
+	padding:10px;
+	margin:15px 0 0 0;
+}
+.pxbtn:visited {
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #ffa201 ), to( #ff6501 )); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #ffa201 , #ff6501 ); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #ffa201 , #ff6501 ); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #ffa201 , #ff6501 ); /* IE10 */
+	background-image:      -o-linear-gradient( #ffa201 , #ff6501 ); /* Opera 11.10+ */
+	background-image:         linear-gradient( #ffa201 , #ff6501 );
+}
+.pxbtn:hover {
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #ff7f01 ), to( #ff6501 )); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #ff7f01 , #ff6501 ); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #ff7f01 , #ff6501 ); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #ff7f01 , #ff6501 ); /* IE10 */
+	background-image:      -o-linear-gradient( #ff7f01 , #ff6501 ); /* Opera 11.10+ */
+	background-image:         linear-gradient( #ff7f01 , #ff6501 );
+}
+.pxbtn:active {
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #ff6501 ), to( #ffa201 )); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #ff6501 , #ffa201 ); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #ff6501 , #ffa201 ); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #ff6501 , #ffa201 ); /* IE10 */
+	background-image:      -o-linear-gradient( #ff6501 , #ffa201 ); /* Opera 11.10+ */
+	background-image:         linear-gradient( #ff6501 , #ffa201 );
+	border: 1px solid #ff6501;
+	border-top: 1px solid #d35605;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;
+}

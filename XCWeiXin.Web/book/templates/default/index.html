@@ -1,0 +1,50 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>{$bookconfig.bookName}</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link href="/css/mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet">   
+<link href="/book/templates/default/css/style.css" rel="stylesheet" />
+   
+<script src="/scripts/jquery.min-1.11.1.js"></script>
+<script src="/scripts/jquery.mobile-1.4.5.min.js"></script>
+<script src="/scripts/TouchSlide.1.1.js"></script>
+</head>
+<body>
+<div data-role="page">
+  <div data-role="header">
+  <div class="slide" id="slide" >
+        <div>
+        <vt:set var="where" value="booksettingId" id="mwhere" />
+        <vt:foreach from="$albumslist" item="albums" index="i">
+        <a><img src="{$albums.thumb_path}" /></a>
+         </vt:foreach>
+       </div>   
+    </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.slide').height($('.slide').width()*0.3);	
+	$('.slide').touchslide({timecontrol:3000,animatetime:300,direction:'left',navshow:true,canvassuport:true});
+});
+			</script>
+  </div>
+
+  <div data-role="content" style="width:100%; padding:0; margin:0">
+ <!--分类信息 -->
+<div class="ui-grid-b">
+<vt:function var="category" method="getCategory" type="$this" classlayer="1"/>
+<vt:foreach from="$category" item="c" index="i">
+<div class="ui-block-b grid" ><a href="{$c.category_url}"><img src="{$c.ico_url}"><p>{$c.title}</p></a></div>
+</vt:foreach>
+ <!--分类信息 end -->
+  </div>
+  </div>
+
+</div> 
+</body>
+</html>

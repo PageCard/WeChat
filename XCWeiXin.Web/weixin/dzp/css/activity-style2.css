@@ -1,0 +1,25 @@
+.boxtitle_1{ background:#F90; color:#FFF}
+.font1{ color:#999}
+.input1{ width:100%; height:2rem; line-height:1.5rem; background:#fff; border:#ccc solid 1px;border-radius:5px; padding-left:0.3rem}
+.h61{ text-align:center; font-weight:normal; margin:0}
+
+/* 大转盘样式 */
+.banner{display:block;width:95%;margin-left:auto;margin-right:auto;margin-bottom: 20px;}
+.banner .turnplate{display:block;width:100%;position:relative;}
+.banner .turnplate canvas.item{width:100%;}
+.banner .turnplate img.pointer{position:absolute;width:31.5%;height:42.5%;left:34.6%;top:23%;}
+/* 大转盘样式 end*/
+
+/*九宫格效果CSS开始 */
+#lottery{width:90%;height:auto;margin:0px auto;padding:1em 0 1em 0;}
+#lottery table{border-radius:10px; background:#F93}
+
+#lottery table td{width:33%;text-align:center;vertical-align:middle; padding:0.4rem; background:#FFF4A3;border-radius:10px; border:#F90 solid 1px;}
+#lottery table td h3{ margin:0}
+#lottery table td h5{ color:#A93A04; font-weight:600; padding:0; margin:0}
+#lottery table td img{ width:100%}
+#lottery table .active{background-color:#FC0;border-radius:10px; border:#F90 solid 1px; color:#FFFF00}
+#lottery table .chink{background:#F94A24; border:#C42109 solid 0px;box-shadow: 0 0 5px rgba(255, 255, 255, 1);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 1);-moz-box-shadow: 0 0 5px rgba(255, 255, 255, 1);width:32%;text-decoration:none; color:#FFFF00;}
+
+
+/* 九宫格效果CSS结束 */

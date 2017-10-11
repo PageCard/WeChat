@@ -1,0 +1,350 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>{$model.productName}</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="/sui/css/sm.css" rel="stylesheet">   
+<link href="/shop/templates/2/css/templates.css" rel="stylesheet" />
+<link href="/shop/templates/2/css/swiper.min.css" rel="stylesheet" />
+
+<script src="/scripts/swiper.min.js"></script>
+<script type="text/ecmascript">
+    var expresslist = [];
+    var paylist = [];
+    var pic_path=null;
+</script>
+<style>
+.swiper-container {width: 100%;height:68%;margin-left: auto;margin-right: auto;}
+.swiper-slide {text-align: center;background: #fff;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center; }
+.swiper-slide img{ width:100%; height:auto}
+</style>
+</head>
+<body>
+
+ <div class="page-group">
+        <div class="page">
+<header class="bar bar-nav">
+<a class="button button-link button-nav pull-left back"  ><span class="icon icon-left"></span>返回</a>
+<a class="icon  pull-right "><span class="infocart icon-cart"> {$cartcount}</span></a>
+<h1 class="title"></h1>
+</header>
+<vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+
+        <div class="content">
+        <!--产品图片swiper-->
+                    <!-- Swiper -->
+                    <div class="swiper-container box-shadow-2">
+                        <div class="swiper-wrapper box-shadow-2">
+                <vt:foreach from="$model.albums" item="albums" index="i">
+                <vt:if var="i" value="1">
+               <script> pic_path = "{$albums.original_path}";</script>
+                </vt:if>
+                <div class="swiper-slide"><img src="{$albums.original_path}" /></div>       
+                </vt:foreach>
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-button-prev swiper-button-white"></div>
+                    </div>         
+                <!--产品图片swiper  end-->
+                <!--标题　副标题，价格box1-->
+                    <div class="card margin0" style=" margin-top:0.4rem">
+                    <div class="card-content">
+                    <div class="card-content-inner det_title">{$model.productName}
+                    <h5 class="det_summary">{$model.shortDesc}</h5>           
+                    </div>  
+    
+                    </div>
+                    <div class="card-footer det_prict margin0"><h3 style="color:#000">价格:
+                    <span style="text-decoration:line-through;color:#ccc;">￥{$model.marketPrice}</span></h3>
+                    <h1>￥ <span id="pagesalePrice">{$model.salePrice}</span></h1>
+                  </div> 
+                  <div class="card-footer margin0">
+                    <vt:if var="model.latest" value="true"><h5 class="bk1 icon icon-gift"> 新品</h5></vt:if>
+                    <vt:if var="model.hotsale" value="true"><h5 class="bk1 icon icon-gift"> 热卖</h5></vt:if>
+                    <vt:if var="model.recommended" value="true"><h5 class="bk1 icon icon-gift"> 推荐</h5></vt:if>
+                    <vt:if var="model.specialOffer" value="true"><h5 class="bk1 icon icon-gift"> 特价</h5></vt:if>   
+                   </div>
+                    </div>
+                    <!--物流　支付-->
+                     <div class="card margin0 " style="margin-top:0.6rem">
+                      <div class="card-header nofw" id="wl"><div><i class="icon icon-card fcolor1"></i> 卖家承诺物流配送方式</div> <i class="icon icon-right"></i> </div>
+                      <div class="card-header nofw" id="pay"><div><i class="icon icon-settings fcolor1"></i> 支付方式</div> <i class="icon icon-right"></i></div>
+                   </div>  
+                   <!--属性选择-->
+                      <div class="card margin0 " style="margin-top:0.6rem">
+                      <div class="card-header nofw open-popupset "><div><i class="icon icon2 fcolor1"></i> 请选择颜色、尺寸...</div> <i class="icon icon-right"></i> </div>                   
+                   </div>   
+                   <!--商品详情-->
+     <div class="buttons-tab" style="margin-top:0.6rem">
+    <a href="#tab1" class="tab-link active button">商品详情</a>
+    <a href="#tab2" class="tab-link button">商品参数</a>   
+  </div>
+  
+    <div class="tabs">
+      <div id="tab1" class="tab active">
+        <div class="content-block">
+          <div class="productcontent">{$model.description}</div>    
+        </div>
+      </div>
+      <div id="tab2" class="tab">
+        <div class="content-block">
+       <vt:foreach from="$model.attrs" item="attrs" index="#.floor">
+            <h5 class="h5attr">{$attrs.attrName}:&nbsp;{$attrs.paValue}</h5>            
+            </vt:foreach>  
+    </div>
+       
+      </div>
+   
+    </div>
+
+                
+
+  <div class="content-padded">           
+  <h6 style=" text-align:center; font-weight:normal; color:#ccc; ">--到底啦！--</h6>
+</div>
+        </div>
+        </div>
+<!--属性选择 popup-->
+<div class="popup popup-popupset" style="overflow:visible; height:82%; bottom:0">
+  <div class="content-block" >
+ <div class="card-header border_none" style="padding:0; margin-top:-1rem">
+ <a class="link fcolor2 " >
+ <img id="setimage" class="popupimage" >
+ <div style=" line-height:1rem;margin-top:1rem ">
+ <h3 class="fcolor1 nofw"><span class="fcolor2" style="font-size:0.8rem">价格：</span>￥ <span id="salePrice">{$model.salePrice}</span></h3>
+ <h5 class="nofw">库存：{$model.stock} 件</h5>
+ <h5 class="nofw">请选择尺码 颜色分类</h5>
+ </div> 
+ 
+ </a> 
+ <a class="link"><i class="close-popup icon icon41" style="color:#333; font-size:1.2rem"></i></a>
+ </div>
+ </div>
+
+ <div class="content" style=" margin-top:30%; margin-bottom:3rem" >   
+ <div class="content-inner"  >
+ <div id="attrlist">
+ </div>
+ <input type="hidden" name="midlist" id="midlist" />
+ <input type="hidden" name="attrinfolist" id="attrinfolist" />
+ <div class="cattitle">数量</div>
+ <div class="pronum">
+<input class="min" name="" type="button" value="-" /> 
+<input class="salePriceNum" name="" type="text" value="1" /> 
+<input class="add" name="" type="button" value="+" /> 
+</div>
+ </div>
+</div>
+ <div style=" position:absolute; bottom:0; width:100%" >
+  <div class="row no-gutter">
+      <div class="col-50 " style=" background:#FFA401; color:#fff; text-align:center; line-height:3rem" id="addcart"><h4 class="nofw fcolor3">加入购物车</h4></div>
+       <div class="col-50 " style=" background:#ff4400; color:#fff; text-align:center; line-height:3rem" id="goorder"><h4 class="nofw fcolor3">立即购买</h4></div>
+    </div>
+
+</div>
+   
+  </div>
+
+<!--属性选择 popup  end-->
+<!--物流与支付数据-->
+<vt:foreach from="$express" item="exp" index="i">
+<script type="text/javascript"> expresslist.push({ text: '{$exp.title}', label: true }); </script>                    
+</vt:foreach>
+<vt:foreach from="$payment" item="pay" index="i">
+<script type="text/javascript">paylist.push({ text: '{$pay.title}', label: true }); </script>                    
+</vt:foreach>
+<!--物流与支付数据 end-->
+
+<script src="/sui/js/zepto.js"></script>
+<script src="/sui/js/sm.min.js"></script>
+
+    <script> 
+   $("#bartab02").addClass("active");
+    //    
+$("#setimage").attr('src', pic_path);
+var sku ={$skuStr};
+if(sku!="{}"){
+var obj2 = eval(sku);
+var skulength=obj2.attr.length;
+ var attrHtml = '';
+ for (var i = 0; i < obj2.attr.length; i++) 
+ {
+     attrHtml += '<div class="cattitle">' + obj2.attr[i].attrname+ '<input type="hidden" name="attrstr" id="attrstr'+i+'" /><input type="hidden" name="mid" id="mid'+i+'" /><div class="catt">';
+     for (var j = 0; j < obj2.attr[i].attrlist.length; j++) 
+     {
+         attrHtml += '<a onclick="changeAtt(this,'+i+','+j+')" href="javascript:;" >' + obj2.attr[i].attrlist[j].aname + '<input style="display:none" type="radio" name="rd_'+i+'_'+j+'" mid="'+obj2.attr[i].attrlist[j].pid+'" value="'+obj2.attr[i].attrname+":"+obj2.attr[i].attrlist[j].aname+'" /></a>';
+     }
+     attrHtml+="</div></div>"
+ }
+
+     $("#attrlist").html(attrHtml); 
+   }    
+        //   alert(pic_path);    
+    //焦点图片
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            slidesPerView: 1,
+            paginationClickable: true,
+            spaceBetween: 30,
+            loop: true
+        });
+        //物流，支付方式弹出窗口       
+        $(document).on('click', '#wl', function () {
+            var buttons1 = expresslist;
+            var buttons2 = [{ text: '关闭', bg: 'danger'}];
+            var groups = [buttons1, buttons2];
+            $.actions(groups);
+        });
+        $(document).on('click', '#pay', function () {
+            var buttons1 = paylist;
+            var buttons2 = [{ text: '关闭', bg: 'danger'}];
+            var groups = [buttons1, buttons2];
+            $.actions(groups);
+        });
+        //popup
+        $(document).on('click', '.open-popupset', function () {
+            $.popup('.popup-popupset');
+        });
+
+
+        $(function () {
+            $(".content").scroller({
+                type: 'native'
+            });
+
+            //购物车数量+　-
+$(".add").click(function(){ 
+var t=$(this).parent().find('input[class*=salePriceNum]'); 
+t.val(parseInt(t.val())+1)  
+}) 
+$(".min").click(function(){ 
+var t=$(this).parent().find('input[class*=salePriceNum]'); 
+t.val(parseInt(t.val())-1) 
+if(parseInt(t.val())<1){ 
+t.val(1); 
+} 
+}) 
+///
+
+        });
+
+//产品属性
+        function changeAtt(t,ii,j) {
+            t.lastChild.checked = 'checked';
+            for (var i = 0; i < t.parentNode.childNodes.length; i++) {
+                if (t.parentNode.childNodes[i].className == 'cattsel') {
+                    t.parentNode.childNodes[i].className = '';
+                }
+            }
+            t.className = "cattsel";
+           var newpricet=obj2.attr[ii].attrlist[j].stockPrice;
+           var addprice=obj2.attr[ii].attrlist[j].addprice;
+           var cname=obj2.attr[ii].attrname;
+           var aname=obj2.attr[ii].attrlist[j].aname;
+            if(addprice>0){
+          $("#salePrice").html(Number(newpricet).toFixed(2));
+          $("#pagesalePrice").html(Number(newpricet).toFixed(2));
+          }
+          var attname="",skuid="";
+$("#attrstr"+ii+"").val($('input[name="rd_'+ii+'_'+j+'"]:checked ').val());
+$("#mid"+ii+"").val($('input[name="rd_'+ii+'_'+j+'"]:checked ').attr("mid"));
+ var attrstreq = $("input[name='attrstr']"); 
+ var skustreq = $("input[name='mid']");
+ for(var a=0;a<attrstreq.length;a++)
+ {
+ attname+=attrstreq[a].value;
+ skuid+=skustreq[a].value;
+ if(a<attrstreq.length &&attrstreq[a].value!="")
+ {
+ attname+="-";
+ skuid+="-";
+ }
+ }
+ $("#attrinfolist").val(attname);
+ $("#midlist").val(skuid);
+
+       
+         // alert($("#attrstr").val())
+          
+        }
+//加入购物车
+$("#addcart").click(function(){    
+   addcart(1);
+}) ;
+//加入购物车
+$("#goorder").click(function(){    
+   addcart(2);
+}) ;
+//添加购物车 通用
+function addcart(type){
+var wid ={$wid};
+ var productId={$model.id};
+ var mid=$("#midlist").val();;
+ var attr=$("#attrinfolist").val();
+ var bc=$(".salePriceNum").val();
+ var totprice={$model.salePrice};
+
+ if(skulength>0){
+ if(mid=="")
+ {
+ $.toast("请选择！");
+ return;
+ }
+ midstrlen=mid.split("-").length-1;
+
+if(midstrlen<skulength)
+{
+ $.toast("还有没有选择项哦！");
+ return;
+}
+}
+if(bc=="0")
+{
+$.toast("数量是0?");
+return;
+}
+            $.ajax({
+            url: "shopmgr.ashx",
+            dataType: "json",
+            data: {myact: "addCart",wid:wid,productId:productId,mid:mid,attr:attr,bc:bc,totprice:totprice,rad: Math.random() },                       
+            success: function (data) {  
+              if(data.errCode=="false")//添加成功
+              {
+              if(type==1){//购物车
+              $(".infocart").html(" "+data.cartcount);
+              $.closeModal(".popup-popupset");
+              $.toast(data.recontent);
+              }
+              else if(type==2){//结算
+              $.router.load("confirmOrder.aspx?wid={$wid}");
+              }
+
+              }
+              else
+              {
+               $(".infocart").html(" "+data.cartcount);
+               $.closeModal(".popup-popupset");
+               $.toast(data.recontent);
+              }
+                   
+            }
+            })
+
+
+}
+    </script>
+
+
+</body>
+</html>

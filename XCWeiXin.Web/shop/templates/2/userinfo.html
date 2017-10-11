@@ -1,0 +1,155 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>会员中心</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="/sui/css/sm.css" rel="stylesheet">   
+<link href="/shop/templates/2/css/templates.css" rel="stylesheet" />
+<link href="/shop/templates/2/css/swiper.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="page">
+<header class="bar bar-nav">
+<a class="button button-link button-nav pull-left back"  ><span class="icon icon-left"></span>返回</a>
+<a href="cart.aspx?wid={$wid}" class="icon  pull-right "><span class="infocart icon-cart"> {$cartcount}</span></a>
+<h1 class="title"></h1>
+</header>
+        <!-- 工具栏 -->
+ <vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+        <!-- 工具栏 end-->
+<div class="content">
+<div class="buttons-tab">
+    <a href="#tab1" class="tab-link active button">待付款</a>
+    <a href="#tab2" class="tab-link button">待收货</a>
+    <a href="#tab3" class="tab-link button">已结束</a>
+  </div>
+  <div class="list-block">
+    <div class="tabs" style="padding:0; margin-top:-1.5rem">
+      <div id="tab1" class="tab active">
+    <!------待付款------>     
+<vt:foreach from="$o_dfu" item="o" index="i">
+  <div class="list-block media-list">
+        <ul>
+        <li class="item-inner">　<a href="order_detail.aspx?wid={$wid}&orderid={$o.id}">订单编号：{$o.order_no}</a></li>
+<vt:foreach from="$o.order_product" item="g" index="j">
+<li class="item-content">
+            <div class="item-media">
+             <a href="{$yuming}/shop/detail.aspx?wid={$wid}&pid={$g.id}&openid={$openid}"> <img src="{$g.focusImgUrl}"  style='width: 4rem;'></a>
+            </div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                <div class="item-title">{$g.productName}</div>
+              </div>
+              <div class="item-subtitle">数量：{$g.stock}  　单价：&yen;{$g.salePrice}元</div>
+            </div>
+          </li>   
+</vt:foreach> 
+ </ul>
+ </div>   
+</vt:foreach>
+        
+      </div>
+      <div id="tab2" class="tab">
+        <div class="content-block">
+  <!------待收货------>            
+<vt:foreach from="$o_dsh" item="o" index="i">
+  <div class="list-block media-list">
+        <ul>
+        <li class="item-inner">　<a href="order_detail.aspx?wid={$wid}&orderid={$o.id}">订单编号：{$o.order_no}{$o.statusName}</a></li>
+<vt:foreach from="$o.order_product" item="g" index="j">
+<li class="item-content">
+            <div class="item-media">
+             <a href="{$yuming}/shop/detail.aspx?wid={$wid}&pid={$g.id}&openid={$openid}"> <img src="{$g.focusImgUrl}"  style='width: 4rem;'></a>
+            </div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                <div class="item-title">{$g.productName}</div>
+              </div>
+              <div class="item-subtitle">数量：{$g.stock}  　单价：&yen;{$g.salePrice}元</div>
+              <div class="item-subtitle"><!--<a href="#" class="button button-danger" id="bntstatus" oid="{$o.id}" >确认收货</a>--></div>
+            </div>
+          
+          </li>  
+         
+</vt:foreach> 
+ </ul>
+ </div>   
+</vt:foreach>
+ 
+        </div>
+      </div>
+      <div id="tab3" class="tab">
+        <div class="content-block">
+     <!------已结束------>                
+ <vt:foreach from="$o_yjs" item="o" index="i">
+  <div class="list-block media-list">
+        <ul>
+        <li class="item-inner">　<a href="order_detail.aspx?wid={$wid}&orderid={$o.id}">订单编号：{$o.order_no}</a></li>
+<vt:foreach from="$o.order_product" item="g" index="j">
+<li class="item-content">
+            <div class="item-media">
+             <a href="{$yuming}/shop/detail.aspx?wid={$wid}&pid={$g.id}&openid={$openid}"> <img src="{$g.focusImgUrl}"  style='width: 4rem;'></a>
+            </div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                <div class="item-title">{$g.productName}</div>
+              </div>
+              <div class="item-subtitle">数量：{$g.stock}  　单价：&yen;{$g.salePrice}元</div>
+            </div>
+          </li>   
+</vt:foreach> 
+ </ul>
+ </div>   
+</vt:foreach>
+ 
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+</div>
+
+<script src="/sui/js/zepto.js"></script>
+<script src="/sui/js/sm.min.js"></script>
+
+<script type="text/javascript">
+    $("#bartab04").addClass("active");
+   
+   /* $("#bntstatus").click(function () {      
+        var id = $(this).attr("oid");
+        
+        $.ajax({
+        url: "shopmgr.ashx",
+        dataType: "json",
+        data: { myact: "shouhuo", wid: "{$wid}", order_id: '{$order.order_no}', rad: Math.random() },
+        success: function (data) {
+
+        if (data.errCode) {
+        $.toast(data.msg);
+        $.router.load("{$userurl}");
+        }
+        }
+        })
+     
+
+    })
+    */
+</script>
+
+
+
+
+</body>
+</html>

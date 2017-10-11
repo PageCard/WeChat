@@ -1,0 +1,152 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>订单确认</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="/sui/css/sm.css" rel="stylesheet">   
+<link href="/shop/templates/2/css/templates.css" rel="stylesheet" />
+<link href="/shop/templates/2/css/swiper.min.css" rel="stylesheet" />
+<script type="text/ecmascript">
+    var expresslist = [];
+    var paylist = [];
+    var pc = 0;
+    var mtype = 0;
+</script>
+</head>
+<body>
+ <div class="page">
+<header class="bar bar-nav">
+<a class="button button-link button-nav pull-left back"  ><span class="icon icon-left"></span>返回</a>
+<a href="cart.aspx?wid={$wid}" class="icon  pull-right "><span class="infocart icon-cart"> {$cartcount}</span></a>
+<h1 class="title"></h1>
+</header>
+        <!-- 工具栏 -->
+<div class="bar bar-footer-secondary" style=" padding-right:0;">
+<div class="row">
+<div class="col-50" style="line-height:2rem">合计：<span id="cartcount">{$alltot}</span>元</div>
+<div class="col-50 cartjs" style="line-height:2rem">提交订单</div>
+</div>
+</div>
+ <vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+        <!-- 工具栏 end-->
+<div class="content">
+  <!--地址管理-->
+<div class="card">
+      <div class="card-footer">
+      <a>收货地址</a>
+      <a href="editaddr.aspx?wid={$wid}&openid={$openid}&frompage=confirmOrder.aspx" class="link">修改</a>
+    </div>
+    <div class="card-content">
+      <div class="card-content-inner" style="padding-top:0">
+      <p> 收件人：{$addrinfo.contractPerson} 　Tel:<span class="ui_color_weak">{$addrinfo.tel}</span></p>
+      <p>{$addrinfo.province}{$addrinfo.city}{$addrinfo.area}{$addrinfo.addrDetail}</p>
+      </div>     
+    </div>
+  </div>
+ <!--物流　支付-->
+    <div class="card margin0 " style="margin-top:0.6rem">
+    <div class="card-header nofw" id="wl"><div><i class="icon icon-card fcolor1"></i> <span id="wltxt">卖家承诺物流配送方式</span></div> <i class="icon icon-right"></i> </div>
+    <div class="card-header nofw" id="pay"><div><i class="icon icon-settings fcolor1"></i> <span id="paytxt">支付方式</span></div> <i class="icon icon-right"></i></div>
+    </div>  
+  <!--列表-->
+        <div class="list-block media-list" style="margin-top:0.6rem">
+        
+
+        <ul id="checklist">
+        <li><div class="item-inner">　　购物车列表</div></li>
+        <vt:foreach from="$cartlist" item="cproduct" index="i"  >
+        <li>
+         <a href="{$cproduct.productUrl}" class="item-link item-content">
+          <div class="item-media"><img src="{$cproduct.productPic}" style='width: 4rem;'></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">{$cproduct.productName}</div>
+              <div class="item-after">{$cproduct.avgPrice}元</div>
+            </div>
+            <div class="item-subtitle">{$cproduct.fskuInfo}</div>
+            <div class="item-text">数量：<span class="productNumedit{$i}">{$cproduct.productNum}</span>　共计：￥<span class="totPriceedit{$i}">{$cproduct.totPrice}</span>元</div>
+          </div>
+        </a>
+        </li>
+        </vt:foreach>
+        </ul>
+       </div>
+
+</div>
+
+</div>
+
+
+<!--物流与支付数据-->
+<vt:foreach from="$express" item="exp" index="i">
+<script type="text/javascript">    expresslist.push({ text: '{$exp.title}　{$exp.express_fee}元', onClick: function () { $('#wltxt').text('{$exp.title}　{$exp.express_fee}元'); $('#cartcount').text(parseFloat('{$alltot}') + parseFloat('{$exp.express_fee}')); mtype = '{$exp.id}'; } }); </script>                    
+</vt:foreach>
+<vt:foreach from="$payment" item="pay" index="i">
+<script type="text/javascript">    paylist.push({ text: '{$pay.title}', onClick: function () { $('#paytxt').text('{$pay.title}'); pc='{$pay.id}'; } });  </script>                    
+</vt:foreach>
+<!--物流与支付数据 end-->
+
+<script src="/sui/js/zepto.js"></script>
+<script src="/sui/js/sm.min.js"></script>
+  <script type="text/javascript">
+      $("#bartab03").addClass("active");
+      //物流，支付方式弹出窗口
+      $(document).on('click', '#wl', function () {         
+          var buttons1 = expresslist;
+          var buttons2 = [{ text: '关闭', bg: 'danger'}];
+          var groups = [buttons1, buttons2];
+          $.actions(groups);
+      });
+      $(document).on('click', '#pay', function () {
+          var buttons1 = paylist;
+          var buttons2 = [{ text: '关闭', bg: 'danger'}];
+          var groups = [buttons1, buttons2];
+          $.actions(groups);
+      });
+
+      $(".cartjs").click(function () {
+
+          if (mtype == 0) {
+              $.toast("请选择物流");
+              return false;
+          }
+          if (pc == 0) {
+              $.toast("请选择支付方式");
+              return false;
+          }
+
+
+          $.ajax({
+              url: "shopmgr.ashx",
+              dataType: "json",
+              data: { myact: "order_save", wid: "{$wid}", pc: pc, mtype: mtype, rad: Math.random() },
+              success: function (data) {
+              
+                  if (data.errCode)//添加成功
+                  {
+                  $.router.load("order_success.aspx?wid="+data.wid+"&orderid=" + data.orderid + "");
+                        // $.toast(data.msg);                      
+                  }
+                  else {
+                    $.toast(data.msg); 
+                   
+                  }
+              }
+          })
+
+
+
+      })
+  </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{$shopconfig.shopName}</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="/sui/css/sm.css" rel="stylesheet">   
+<link href="/shop/templates/1/css/templates.css" rel="stylesheet" />
+<link href="/shop/templates/1/css/swiper.min.css" rel="stylesheet" />
+
+<script src="/sui/js/zepto.js"></script>
+<script src="/sui/js/sm.min.js"></script>
+<script src="/scripts/swiper.min.js"></script>
+
+</head>
+<body> 
+  
+        <div class="page">
+<vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+
+        <div class="content">
+        
+            <!--焦点图片-->
+            <div class="swiper-container">
+            <div class="swiper-wrapper">
+            <vt:set var="where" value="shopsettingId" id="mwhere" />
+            <vt:foreach from="$albumslist" item="albums" index="i">
+            <div class="swiper-slide"><img src="{$albums.original_path}" /></div>
+            </vt:foreach>
+            </div>       
+            <div class="swiper-pagination"></div>
+            </div>
+            <script>var swiper = new Swiper('.swiper-container', { pagination: '.swiper-pagination', paginationClickable: true });</script>
+            <!--焦点图片 end-->
+            <div class="clear"></div>
+            <!--模块1-->
+            <div class="indexbox_1">
+            <!--自定义商品列表-->
+            
+           <div class="content-padded ">
+           <div class="indexTitle_1">手提女包<p><a href="#">更多</a></p></div>
+           <div class="row">
+            <vt:function var="prs" method="ProductIndexPage" type="$this" cid="22" orderby=" id asc" top="6" where=""  />
+            <vt:foreach from="$prs" item="prs" index="i">           
+            <div class="col-50 indexproductlist_1">
+            <a href="{$prs.link_url}">
+            <div class="item-media"><img src="{$prs.productpic}" /></div>
+            <h5 class="IPL_name">{$prs.productName}</h5>
+            <h5 class="IPL_summary">{$prs.shortDesc}&nbsp;</h5>
+            <p class="IPL_price">￥{$prs.salePrice}元</p>
+            </a>
+            </div>           
+            </vt:foreach>
+             </div></div>
+            <!--自定义商品列表 end-->
+            </div>
+            <!--模块1 end-->
+            <div class="clear"></div>
+            <!--模块2-->
+            <div class="indexbox_1">
+            <!--自定义商品列表-->            
+           <div class="content-padded ">
+           <div class="indexTitle_1">双肩女包<p><a href="#">更多</a></p></div>
+           <div class="row">
+            <vt:function var="prs" method="ProductIndexPage" type="$this" cid="23" orderby=" id asc" top="6" where=""  />
+            <vt:foreach from="$prs" item="prs" index="i">           
+            <div class="col-50 indexproductlist_1">
+            <a href="{$prs.link_url}">
+            <div class="item-media"><img src="{$prs.productpic}" /></div>
+            <h5 class="IPL_name">{$prs.productName}</h5>
+            <h5 class="IPL_summary">{$prs.shortDesc}&nbsp;</h5>
+            <p class="IPL_price">￥{$prs.salePrice}元</p>
+            </a>
+            </div>           
+            </vt:foreach>
+             </div></div>
+            <!--自定义商品列表 end-->
+            </div>
+            <!--模块2 end-->
+		   <div class="clear"></div>
+            <!--模块2-->
+            <div class="indexbox_1">
+            <!--自定义商品列表-->            
+           <div class="content-padded ">
+           <div class="indexTitle_1">小手提包<p><a href="#">更多</a></p></div>
+           <div class="row">
+            <vt:function var="prs" method="ProductIndexPage" type="$this" cid="24" orderby=" id asc" top="6" where=""  />
+            <vt:foreach from="$prs" item="prs" index="i">           
+            <div class="col-50 indexproductlist_1">
+            <a href="{$prs.link_url}">
+            <div class="item-media"><img src="{$prs.productpic}" /></div>
+            <h5 class="IPL_name">{$prs.productName}</h5>
+            <h5 class="IPL_summary">{$prs.shortDesc}&nbsp;</h5>
+            <p class="IPL_price">￥{$prs.salePrice}元</p>
+            </a>
+            </div>           
+            </vt:foreach>
+             </div></div>
+            <!--自定义商品列表 end-->
+            </div>
+            <!--模块2 end-->
+			            <div class="clear"></div>
+            <!--模块2-->
+            <div class="indexbox_1">
+            <!--自定义商品列表-->            
+           <div class="content-padded ">
+           <div class="indexTitle_1">贝壳包<p><a href="#">更多</a></p></div>
+           <div class="row">
+            <vt:function var="prs" method="ProductIndexPage" type="$this" cid="32" orderby=" id asc" top="6" where=""  />
+            <vt:foreach from="$prs" item="prs" index="i">           
+            <div class="col-50 indexproductlist_1">
+            <a href="{$prs.link_url}">
+            <div class="item-media"><img src="{$prs.productpic}" /></div>
+            <h5 class="IPL_name">{$prs.productName}</h5>
+            <h5 class="IPL_summary">{$prs.shortDesc}&nbsp;</h5>
+            <p class="IPL_price">￥{$prs.salePrice}元</p>
+            </a>
+            </div>           
+            </vt:foreach>
+             </div></div>
+            <!--自定义商品列表 end-->
+            </div>
+            <!--模块2 end-->
+			            <div class="clear"></div>
+            <!--模块2-->
+            <div class="indexbox_1">
+            <!--自定义商品列表-->            
+           <div class="content-padded ">
+           <div class="indexTitle_1">信封包<p><a href="#">更多</a></p></div>
+           <div class="row">
+            <vt:function var="prs" method="ProductIndexPage" type="$this" cid="33" orderby=" id asc" top="6" where=""  />
+            <vt:foreach from="$prs" item="prs" index="i">           
+            <div class="col-50 indexproductlist_1">
+            <a href="{$prs.link_url}">
+            <div class="item-media"><img src="{$prs.productpic}" /></div>
+            <h5 class="IPL_name">{$prs.productName}</h5>
+            <h5 class="IPL_summary">{$prs.shortDesc}&nbsp;</h5>
+            <p class="IPL_price">￥{$prs.salePrice}元</p>
+            </a>
+            </div>           
+            </vt:foreach>
+             </div></div>
+            <!--自定义商品列表 end-->
+            </div>
+            <!--模块2 end-->
+			            <div class="clear"></div>
+            <!--模块2-->
+            <div class="indexbox_1">
+            <!--自定义商品列表-->            
+           <div class="content-padded ">
+           <div class="indexTitle_1">百搭包<p><a href="#">更多</a></p></div>
+           <div class="row">
+            <vt:function var="prs" method="ProductIndexPage" type="$this" cid="34" orderby=" id asc" top="6" where=""  />
+            <vt:foreach from="$prs" item="prs" index="i">           
+            <div class="col-50 indexproductlist_1">
+            <a href="{$prs.link_url}">
+            <div class="item-media"><img src="{$prs.productpic}" /></div>
+            <h5 class="IPL_name">{$prs.productName}</h5>
+            <h5 class="IPL_summary">{$prs.shortDesc}&nbsp;</h5>
+            <p class="IPL_price">￥{$prs.salePrice}元</p>
+            </a>
+            </div>           
+            </vt:foreach>
+             </div></div>
+            <!--自定义商品列表 end-->
+            </div>
+            <!--模块2 end-->
+			            <div class="clear"></div>
+            <!--模块2-->
+            <div class="indexbox_1">
+            <!--自定义商品列表-->            
+           <div class="content-padded ">
+           <div class="indexTitle_1">名牌包<p><a href="#">更多</a></p></div>
+           <div class="row">
+            <vt:function var="prs" method="ProductIndexPage" type="$this" cid="29" orderby=" id asc" top="6" where=""  />
+            <vt:foreach from="$prs" item="prs" index="i">           
+            <div class="col-50 indexproductlist_1">
+            <a href="{$prs.link_url}">
+            <div class="item-media"><img src="{$prs.productpic}" /></div>
+            <h5 class="IPL_name">{$prs.productName}</h5>
+            <h5 class="IPL_summary">{$prs.shortDesc}&nbsp;</h5>
+            <p class="IPL_price">￥{$prs.salePrice}元</p>
+            </a>
+            </div>           
+            </vt:foreach>
+             </div></div>
+            <!--自定义商品列表 end-->
+            </div>
+            <!--模块2 end-->
+        
+        </div>
+        </div>
+
+     
+<script>
+    $("#bartab01").addClass("active");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+﻿{"menu":{"button":[{"name":"菜单1","sub_button":[{"type":"view","name":"二级菜单","url":"http:\/\/14953q73i7.iask.in\/api\/oauth\/Weixin_oauth\/oauth.aspx","sub_button":[]}]},{"name":"菜单2","sub_button":[{"type":"view","name":"123","url":"http:\/\/14953q73i7.iask.in\/api\/oauth\/Weixin_oauth\/oauth.aspx?wid=43","sub_button":[]}]}]}}

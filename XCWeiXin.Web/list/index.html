@@ -1,0 +1,320 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>物料商场</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link href="dist/css/framework7.material.min.css" rel="stylesheet" />
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link href="dist/css/framework7.material.colors.min.css" rel="stylesheet" />
+    <!-- Path to your custom app styles-->
+    <link href="dist/iconfont/iconfont.css" rel="stylesheet" />
+
+    <link href="dist/css/my-app.css" rel="stylesheet" />
+    <style>
+        .demo-card-header-pic .card-header {
+            height: 50vw;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body class="theme-pink">
+    <!-- Panels Overlay -->
+    <div class=" panel-overlay">
+    </div>
+
+    <!-- Left Panel with Reveal effect -->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p>Left Panel content here</p>
+            <!-- Click on link with "close-panel" class will close panel -->
+            <p><a href="#" class="close-panel">Close me</a></p>
+            <!-- Click on link with "open-panel" and data-panel="right" attribute will open Right panel -->
+            <p><a href="#" data-panel="right" class="open-panel">Open Right Panel</a></p>
+        </div>
+    </div>
+
+    <!-- Right Panel with Cover effect -->
+    <div class="panel panel-right panel-cover">
+        <div class="content-block">
+            <p>Right Panel content here</p>
+            <!-- Click on link with "close-panel" class will close panel -->
+            <p><a href="#" class="close-panel">Close me</a></p>
+            <!-- Click on link with "open-panel" and data-panel="left" attribute will open Left panel -->
+            <p><a href="#" data-panel="left" class="open-panel">Open Left Panel</a></p>
+        </div>
+    </div>
+    <!-- Views -->
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages">
+                <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+                <div data-page="index" class="page toolbar-fixed  ">
+
+
+                    <!-- Top Navbar-->
+                   <!--  <div class="navbar">
+                        <div class="navbar-inner">
+
+                            <div class="center">商城模板</div>
+
+                        </div>
+                    </div>-->
+                    <!-- Bottom Toolbar-->
+                    <div class="toolbar  tabbar  toolbar-bottom">
+                        <div class="toolbar-inner">
+                            <a href="index.html" class="tab-link external active">
+                                <i class="axiba icon-fangzi"></i>
+                                <span class="tabbar-label">No.1</span>
+                            </a>
+                            <a href="shop.html" class="tab-link external">
+                                <i class="axiba icon-shoucang1"></i>
+                                <span class="tabbar-label">会场</span>
+                            </a>
+                            <a href="host.html" class="tab-link external ">
+                                <i class="axiba icon-BBDhezi"></i>
+                                <span class="tabbar-label">发现</span>
+                            </a>
+                            <a href="myindex.html" class="tab-link external">
+                                <i class="axiba icon-shezhi1"></i>
+                                <span class="tabbar-label">我的</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /End of Bottom Toolbar-->
+                    <!-- Speed Dial Wrap -->
+                    <div class="speed-dial" style="padding-bottom:4rem">
+                        <!-- FAB inside will open Speed Dial actions -->
+                        <a href="#" class="floating-button">
+                            <!-- First icon is visible when Speed Dial actions are closed -->
+                            <i class="icon icon-plus"></i>
+                            <!-- Second icon is visible when Speed Dial actions are opened -->
+                            <i class="icon icon-close"></i>
+                        </a>
+                        <!-- Speed Dial Actions -->
+                        <div class="speed-dial-buttons">
+                            <!-- First Speed Dial button -->
+                            <a href="#">
+                                <i class="icon icon-email"></i>
+                            </a>
+                            <!-- Second Speed Dial  button -->
+                            <a href="#">
+                                <i class="icon icon-calendar"></i>
+                            </a>
+                            <!-- Third Speed Dial  button -->
+                            <a href="#">
+                                <i class="icon icon-upload"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- /End of Top Navbar-->
+                    <!-- Search Bar -->
+                    <!-- <form class="searchbar searchbar-init">
+            <div class="searchbar-input sub">
+                <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+            </div><a href="#" class="searchbar-cancel">Cancel</a>
+        </form>
+
+        <!-- Search Bar overlay -->
+                    <!-- <div class="searchbar-overlay"></div>-->
+                    <div class="page-content" style="background-color: #F2F3F5">
+
+                        <!--幻灯片start-->
+                        <!-- swiper properties in JSON format in data-swiper attribute -->
+                        <div class="swiper-container swiper-1">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="https://a3.vimage1.com/upload/flow/2017/08/04/63/15018508741178.jpg" width="100%" height="160" /></div>
+                                <div class="swiper-slide"><img src="https://a2.vimage1.com/upload/flow/2017/08/25/165/15036549150419.jpg" width="100%" height="160" /></div>
+                                <div class="swiper-slide"><img src="https://a.vimage1.com/upload/brand/upcb/2017/08/22/31/ias_150337865475985_604x290_80.jpg" width="100%" height="160" /></div>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <!--END-->
+
+
+                        <div class="row no-gutter" style="padding-left: 1rem; background-color: #FFFFFF; margin-bottom: 0.2rem">
+                            <!-- Each "cell" has col-[widht in percents] class -->
+                            <div class="col-25 bor">
+
+                                <dl>
+                                    <dt class="imghot" style="text-align:center">
+                                      <img src="https://m.360buyimg.com/mobilecms/jfs/t7303/179/1516598601/20640/ed457469/599d42c9N30645eb2.png" width="80%" />
+                                    </dt>
+                                    <dt class="hottext" style="text-align:center">主会场</dt>
+                                </dl>
+
+                            </div>
+                            <div class="col-25  bor">
+
+                                <dl>
+                                    <dt class="imghot">
+                                        <img src="https://m.360buyimg.com/mobilecms/jfs/t5656/351/153181074/12227/e35aa8d/591d9456Naa85e195.png" width="80%" />
+                                    </dt>
+                                    <dt class="hottext">潮牌衣物</dt>
+                                </dl>
+
+                            </div>
+                            <div class="col-25 bor ">
+
+                                <dl>
+                                    <dt class="imghot">
+                                        <img src="https://m.360buyimg.com/mobilecms/jfs/t5824/248/156712927/7215/1ad6be5f/591d94c6Nc4711ad2.png" width="80%" />
+                                    </dt>
+                                    <dt class="hottext">时尚新品</dt>
+                                </dl>
+
+                            </div>
+                            <div class="col-25">
+
+                                <dl>
+                                    <dt class="imghot">
+                                        <img src="https://m.360buyimg.com/mobilecms/jfs/t5965/339/3633548361/13799/cd4d0416/5954cf81N3294a71c.png" width="80%" />
+                                    </dt>
+                                    <dt class="hottext">全球时尚</dt>
+                                </dl>
+
+                            </div>
+                        </div>
+                        <div class="row no-gutter" style="padding-left: 1rem; background-color: #FFFFFF; margin-bottom: 0.2rem">
+                            <!-- Each "cell" has col-[widht in percents] class -->
+                            <div class="col-25 bor">
+
+                                <dl>
+                                    <dt class="imghot">
+                                        <img src="https://m.360buyimg.com/mobilecms/jfs/t7303/179/1516598601/20640/ed457469/599d42c9N30645eb2.png" width="80%" />
+                                    </dt>
+                                    <dt class="hottext">主会场</dt>
+                                </dl>
+
+                            </div>
+                            <div class="col-25 bor ">
+
+                                <dl>
+                                    <dt class="imghot">
+                                        <img src="https://m.360buyimg.com/mobilecms/jfs/t5656/351/153181074/12227/e35aa8d/591d9456Naa85e195.png" width="80%" />
+                                    </dt>
+                                    <dt class="hottext">潮牌衣物</dt>
+                                </dl>
+
+                            </div>
+                            <div class="col-25  bor">
+
+                                <dl>
+                                    <dt class="imghot">
+                                        <img src="https://m.360buyimg.com/mobilecms/jfs/t5824/248/156712927/7215/1ad6be5f/591d94c6Nc4711ad2.png" width="80%" />
+                                    </dt>
+                                    <dt class="hottext">时尚新品</dt>
+                                </dl>
+
+                            </div>
+                            <div class="col-25">
+
+                                <dl>
+                                    <dt class="imghot">
+                                        <img src="https://m.360buyimg.com/mobilecms/jfs/t5965/339/3633548361/13799/cd4d0416/5954cf81N3294a71c.png" width="80%" />
+                                    </dt>
+                                    <dt class="hottext">全球时尚</dt>
+                                </dl>
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <img width="100%" src="http://a3.vimage1.com/upload/flow/2017/08/25/155/15036462460512.jpg" />
+                        </div>
+
+                        <!--listshop-->
+                        <div>
+                            <!--cardstart-->
+                            <div class="card demo-card-header-pic">
+                                <div style="background-image: url(https://a.vimage1.com/upload/brand/upcb/2017/08/22/70/ias_150339594275760_604x290_80.jpg)" valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                <div class="card-content">
+                                    <div class="card-content-inner">
+                                        <p class="color-gray">女装专场，唯美女孩</p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card demo-card-header-pic">
+                                <div style="background-image: url(https://b.vimage1.com/2017/08/25/7204/ec190f8f720efdd3c5c3c63296a29fae_604x290_80.jpg); " valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                <div class="card-content">
+                                    <div class="card-content-inner">
+                                        <p class="color-gray">运动户外，精选必备</p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card demo-card-header-pic">
+                                <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/25/112/a737d1682cfebb102e868928c255c1fb_604x290_80.jpg)" valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                <div class="card-content">
+                                    <div class="card-content-inner">
+                                        <p class="color-gray">初秋精选.人气好物</p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card demo-card-header-pic">
+                                <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/26/17/12312bbc82cc494cf08886c220b321cf_604x290_80.jpg); " valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                <div class="card-content">
+                                    <div class="card-content-inner">
+                                        <p class="color-gray">内衣密礼，爱意相伴</p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--cardEND-->
+                        </div>
+                        <!--ENDlist-->
+                    </div>
+
+                    <!--contextEND-->
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+  
+    <script src="dist/js/framework7.min.js"></script>
+    
+    <!-- Path to your app js-->
+    <script src="dist/js/my-app.js"></script>
+  
+    <script>
+        // 1 Slide Per View, 50px Between
+        var mySwiper1 = myApp.swiper('.swiper-1', {
+            pagination: '.swiper-1 .swiper-pagination',
+            autoplayDisableOnInteraction: false,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 50,
+            autoplay: 2000
+        });
+        $$('.sub').on('click', function () {
+            window.location.href = "search.html"
+        }); 
+       
+
+    </script>
+
+</body>
+</html>

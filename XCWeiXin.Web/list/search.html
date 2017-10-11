@@ -1,0 +1,217 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link href="dist/css/framework7.material.min.css" rel="stylesheet" />
+    <link href="dist/iconfont/iconfont.css" rel="stylesheet" />
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link href="dist/css/framework7.material.colors.min.css" rel="stylesheet" />
+    <!-- Path to your custom app styles-->
+
+    <link href="dist/css/my-app.css" rel="stylesheet" />
+
+</head>
+
+<body class="theme-purple">
+    <!-- Panels Overlay -->
+    <div class=" panel-overlay">
+    </div>
+
+    <!-- Left Panel with Reveal effect -->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p>Left Panel content here</p>
+            <!-- Click on link with "close-panel" class will close panel -->
+            <p><a href="#" class="close-panel">Close me</a></p>
+            <!-- Click on link with "open-panel" and data-panel="right" attribute will open Right panel -->
+            <p><a href="#" data-panel="right" class="open-panel">Open Right Panel</a></p>
+        </div>
+    </div>
+
+    <!-- Right Panel with Cover effect -->
+    <div class="panel panel-right panel-cover">
+        <div class="content-block">
+            <p>Right Panel content here</p>
+            <!-- Click on link with "close-panel" class will close panel -->
+            <p><a href="#" class="close-panel">Close me</a></p>
+            <!-- Click on link with "open-panel" and data-panel="left" attribute will open Left panel -->
+            <p><a href="#" data-panel="left" class="open-panel">Open Left Panel</a></p>
+        </div>
+    </div>
+    <!-- Views -->
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages">
+                <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+                <div data-page="index" class="page navbar-fixed toolbar-fixed">
+
+
+                    <!-- Top Navbar-->
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="left back">
+                                <a href="javascript :;" onclick="javascript :history.back(-1);" class="link icon-only">
+                                    <i class="icon icon-back"></i>
+                                </a>
+                            </div>
+                            <div class="center">Center</div>
+                            <div class="right">
+                                <a href="#" class="link icon-only ">
+                                    <i class="axiba icon-33"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Speed Dial Wrap -->
+                    <div class="speed-dial" style="padding-bottom:4rem">
+                        <!-- FAB inside will open Speed Dial actions -->
+                        <a href="#" class="floating-button">
+                            <!-- First icon is visible when Speed Dial actions are closed -->
+                            <i class="icon icon-plus"></i>
+                            <!-- Second icon is visible when Speed Dial actions are opened -->
+                            <i class="icon icon-close"></i>
+                        </a>
+                        <!-- Speed Dial Actions -->
+                        <div class="speed-dial-buttons">
+                            <!-- First Speed Dial button -->
+                            <a href="#">
+                                <i class="icon demo-icon-email"></i>
+                            </a>
+                            <!-- Second Speed Dial  button -->
+                            <a href="#">
+                                <i class="icon demo-icon-calendar"></i>
+                            </a>
+                            <!-- Third Speed Dial  button -->
+                            <a href="#">
+                                <i class="icon demo-icon-upload"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- /End of Top Navbar-->
+                    <!-- Search Bar -->
+                    <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+                        <div class="searchbar-input">
+                            <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+                        </div><a href="#" class="searchbar-cancel">Cancel</a>
+                    </form>
+
+
+
+                    <!-- Search Bar overlay -->
+                    <div class="searchbar-overlay"></div>
+                    <div class="page-content">
+
+
+
+                        <!-- This block will be displayed if nothing found -->
+                        <div class="content-block searchbar-not-found">
+                            <div class="content-block-inner">Nothing found</div>
+                        </div>
+
+                        <!-- This block will be displayed if anything found, and this list block is used a searbar target -->
+                        <div class="list-block list-block-search searchbar-found">
+                            <ul>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Acura </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Audi</div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Audi</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+                    <!-- Bottom Toolbar-->
+                    <div class="toolbar  tabbar  toolbar-bottom">
+                        <div class="toolbar-inner">
+                            <a href="#tab1" class="tab-link active">
+
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-icon-test18"></use>
+
+                                </svg>
+
+
+
+                                <span class="tabbar-label">No.1</span>
+                            </a>
+                            <a href="#tab2" class="tab-link">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-icon-test42"></use>
+
+                                </svg>
+
+
+
+                                <span class="tabbar-label">类型</span>
+                            </a>
+                            <a href="#tab3" class="tab-link">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-icon-test31"></use>
+
+                                </svg>
+
+
+
+                                <span class="tabbar-label">发现</span>
+                            </a>
+                            <a href="#tab4" class="tab-link">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-icon-test29"></use>
+
+                                </svg>
+
+
+
+                                <span class="tabbar-label">我的</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /End of Bottom Toolbar-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+
+    <script src="dist/js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script src="dist/js/my-app.js"></script>
+    <script src="dist/iconfont/iconfont.js"></script>
+  
+</body>
+</html>

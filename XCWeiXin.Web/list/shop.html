@@ -1,0 +1,357 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>物料商场</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link href="dist/css/framework7.material.min.css" rel="stylesheet" />
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link href="dist/css/framework7.material.colors.min.css" rel="stylesheet" />
+    <!-- Path to your custom app styles-->
+    <link href="dist/iconfont/iconfont.css" rel="stylesheet" />
+
+    <link href="dist/css/my-app.css" rel="stylesheet" />
+   
+
+    <style>
+        .demo-card-header-pic .card-header {
+            height: 50vw;
+            background-size: cover;
+            background-position: center;
+        }
+         .text_ {
+            text-indent: 0.4rem;
+            color:black;
+            font-size:13px
+        }
+        .color_ {
+            color:#E80080;
+        }
+        .list-block-search ul {
+           
+        }
+
+        .list-block-search li {
+          
+            float: left;
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="theme-pink">
+    <!-- Panels Overlay -->
+    <div class=" panel-overlay">
+    </div>
+
+    <!-- Left Panel with Reveal effect -->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p>Left Panel content here</p>
+            <!-- Click on link with "close-panel" class will close panel -->
+            <p><a href="#" class="close-panel">Close me</a></p>
+            <!-- Click on link with "open-panel" and data-panel="right" attribute will open Right panel -->
+            <p><a href="#" data-panel="right" class="open-panel">Open Right Panel</a></p>
+        </div>
+    </div>
+
+    <!-- Right Panel with Cover effect -->
+    <div class="panel panel-right panel-cover">
+        <div class="content-block">
+            <p>Right Panel content here</p>
+            <!-- Click on link with "close-panel" class will close panel -->
+            <p><a href="#" class="close-panel">Close me</a></p>
+            <!-- Click on link with "open-panel" and data-panel="left" attribute will open Left panel -->
+            <p><a href="#" data-panel="left" class="open-panel">Open Left Panel</a></p>
+        </div>
+    </div>
+    <!-- Views -->
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages">
+                <!-- Now we need additional "navbar-fixed" and "toolbar-fixed" classes on Page -->
+                <div data-page="index" class="page toolbar-fixed  ">
+
+
+                    <!-- Top Navbar-->
+                    <!--  <div class="navbar">
+                         <div class="navbar-inner">
+
+                             <div class="center">商城模板</div>
+
+                         </div>
+                     </div>-->
+                    <!-- Bottom Toolbar-->
+                    <div class="toolbar  tabbar  toolbar-bottom">
+                        <div class="toolbar-inner">
+                            <a href="index.html" class="tab-link external ">
+                                <i class="axiba icon-fangzi"></i>
+                                <span class="tabbar-label">No.1</span>
+                            </a>
+                            <a href="shop.html" class="tab-link external active">
+                                <i class="axiba icon-shoucang1"></i>
+                                <span class="tabbar-label">会场</span>
+                            </a>
+                            <a href="host.html" class="tab-link external ">
+                                <i class="axiba icon-BBDhezi"></i>
+                                <span class="tabbar-label">发现</span>
+                            </a>
+                            <a href="myindex.html" class="tab-link external">
+                                <i class="axiba icon-shezhi1"></i>
+                                <span class="tabbar-label">我的</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /End of Bottom Toolbar-->
+                    <!-- Speed Dial Wrap -->
+                    <div class="speed-dial" style="padding-bottom:4rem">
+                        <!-- FAB inside will open Speed Dial actions -->
+                        <a href="#" class="floating-button">
+                            <!-- First icon is visible when Speed Dial actions are closed -->
+                            <i class="icon icon-plus"></i>
+                            <!-- Second icon is visible when Speed Dial actions are opened -->
+                            <i class="icon icon-close"></i>
+                        </a>
+                        <!-- Speed Dial Actions -->
+                        <div class="speed-dial-buttons">
+                            <!-- First Speed Dial button -->
+                            <a href="#">
+                                <i class="icon icon-email"></i>
+                            </a>
+                            <!-- Second Speed Dial  button -->
+                            <a href="#">
+                                <i class="icon icon-calendar"></i>
+                            </a>
+                            <!-- Third Speed Dial  button -->
+                            <a href="#">
+                                <i class="icon icon-upload"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- /End of Top Navbar-->
+                    <!-- Search Bar -->
+                    <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+                        <div class="searchbar-input">
+                            <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+                        </div><a href="#" class="searchbar-cancel">Cancel</a>
+                    </form>
+                    <!-- Search Bar overlay -->
+                    <div class="searchbar-overlay"></div>
+                    <div class="page-content" style="background-color:white;">
+
+                        <!-- This block will be displayed if nothing found -->
+                        <!-- This block will be displayed if nothing found -->
+                        <div class="content-block searchbar-not-found">
+                            <div class="content-block-inner">没查到此件商品</div>
+                        </div>
+
+                        <!-- This block will be displayed if anything found, and this list block is used a searbar target -->
+                        <div class="list-block-search searchbar-found list-block ">
+                            <ul>
+                                <li class="item-content">
+
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/26/17/12312bbc82cc494cf08886c220b321cf_604x290_80.jpg); " valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+                                            <dl>
+                                                <dt class="text_ item-title">牛仔裤</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/25/112/a737d1682cfebb102e868928c255c1fb_604x290_80.jpg)" valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+
+                                            <dl>
+                                                <dt class="text_ item-title">内衣</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/26/17/12312bbc82cc494cf08886c220b321cf_604x290_80.jpg); " valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+                                            <dl>
+                                                <dt class="text_ item-title">牛仔裤</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/26/17/12312bbc82cc494cf08886c220b321cf_604x290_80.jpg); " valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+                                            <dl>
+                                                <dt class="text_ item-title">牛仔裤</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/26/17/12312bbc82cc494cf08886c220b321cf_604x290_80.jpg); " valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+                                            <dl>
+                                                <dt class="text_ item-title">牛仔裤</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/26/17/12312bbc82cc494cf08886c220b321cf_604x290_80.jpg); " valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+                                            <dl>
+                                                <dt class="text_ item-title">牛仔裤</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/26/17/12312bbc82cc494cf08886c220b321cf_604x290_80.jpg); " valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+                                            <dl>
+                                                <dt class="text_ item-title">牛仔裤</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/26/17/12312bbc82cc494cf08886c220b321cf_604x290_80.jpg); " valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+                                            <dl>
+                                                <dt class="text_ item-title">牛仔裤</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                     <!---->
+                        <!--<div class="list-block-search searchbar-found">
+                            <div class="row no-gutter">
+                                <!-- Each "cell" has col-[widht in percents] class -->
+                                <!--<div class="col-50">
+                                    <i class="text_ item-title text">牛仔裤</i>
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/26/17/12312bbc82cc494cf08886c220b321cf_604x290_80.jpg); " valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+                                            <dl>
+                                                <dt class="text_ item-title">牛仔裤</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-50">
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/25/112/a737d1682cfebb102e868928c255c1fb_604x290_80.jpg)" valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+
+                                            <dl>
+                                                <dt class="text_ item-title">内衣</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row no-gutter">
+                                 Each "cell" has col-[widht in percents] class 
+                                <div class="col-50">
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/26/17/12312bbc82cc494cf08886c220b321cf_604x290_80.jpg); " valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+                                            <dl>
+                                                <dt class="text_ item-title">牛仔裤</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-50">
+                                    <div class="demo-card-header-pic" style="margin:0px 1%">
+                                        <div style="background-image: url(https://b.vimage1.com/upload/mst/2017/08/25/112/a737d1682cfebb102e868928c255c1fb_604x290_80.jpg)" valign="bottom" class="card-header color-white no-border">秋季限量优惠购！</div>
+                                        <div class="card-content">
+
+                                            <dl>
+                                                <dt class="text_ item-title">内衣</dt>
+                                                <dt class="text_ color_">￥70 <s style=" text-indent:0.7rem; color:black">￥140</s></dt>
+                                            </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                       
+                    </div>
+
+                    <!--contextEND-->
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+
+    <script src="dist/js/framework7.min.js"></script>
+
+    <!-- Path to your app js-->
+    <script src="dist/js/my-app.js"></script>
+
+    <script>
+        // 1 Slide Per View, 50px Between
+        var mySwiper1 = myApp.swiper('.swiper-1', {
+            pagination: '.swiper-1 .swiper-pagination',
+            autoplayDisableOnInteraction: false,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 50,
+            autoplay: 2000
+        });
+        $$('.sub').on('click', function () {
+            window.location.href = "search.html"
+        });
+
+
+    </script>
+
+</body>
+</html>

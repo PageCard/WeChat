@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bootstrap谷歌Material Design风格日期时间选择器|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/material.min.css" />
+	<link rel="stylesheet" href="./css/bootstrap-material-datetimepicker.css" />
+	<link href='http://fonts.useso.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<!--[if IE]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>Bootstrap谷歌Material Design风格日期时间选择器 <span>A Datepicker for bootstrap-material</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-htmleaf-home-outline" href="http://www.htmleaf.com/" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
+				<a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="http://www.htmleaf.com/jQuery/Calendar-Date-Time-picker/201508232459.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
+			</div>
+		</header>
+		<div class="container well">
+			<div class="row">
+				<div class="col-md-6">
+					<h1>Bootstrap Material DatePicker</h1>
+				</div>
+			</div>
+		</div>
+		<div class="container well">
+			<div class="row">
+				<div class="col-md-6">
+					<h2>Date Picker</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-control-wrapper">
+						<input type="text" id="date" class="form-control floating-label" placeholder="Date">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<code>
+						<p>Code</p>
+						$('#date').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
+					</code>
+				</div>
+			</div>
+		</div>
+		<div class="container well">
+			<div class="row">
+				<div class="col-md-6">
+					<h2>Time Picker</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-control-wrapper">
+						<input type="text" id="time" class="form-control floating-label" placeholder="Time">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<code>
+						<p>Code</p>
+						$('#time').bootstrapMaterialDatePicker({ date: false });
+					</code>
+				</div>
+			</div>
+		</div>
+		<div class="container well">
+			<div class="row">
+				<div class="col-md-6">
+					<h2>Date Time Picker</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-control-wrapper">
+						<input type="text" id="date-format" class="form-control floating-label" placeholder="Begin Date Time">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<code>
+						<p>Code</p>
+						$('#date-format').bootstrapMaterialDatePicker({ format : 'dddd DD MMMM YYYY - HH:mm' });
+					</code>
+				</div>
+			</div>
+		</div>
+		<div class="container well">
+			<div class="row">
+				<div class="col-md-6">
+					<h2>French Locales (Week starts at Monday)</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-control-wrapper">
+						<input type="text" id="date-fr" class="form-control floating-label" value="18/03/2015 08:00" placeholder="Date de début">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<code>
+						<p>Code</p>
+						$('#date-fr').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', lang : 'fr', weekStart : 1, cancelText : 'ANNULER' });
+					</code>
+				</div>
+			</div>
+		</div>
+		<div class="container well">
+			<div class="row">
+				<div class="col-md-6">
+					<h2>Min Date set</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-control-wrapper">
+						<input type="text" id="min-date" class="form-control floating-label" placeholder="Start Date">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<code>
+						<p>Code</p>
+						$('#min-date').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
+					</code>
+				</div>
+			</div>
+		</div>
+		<div class="container well">
+			<div class="row">
+				<div class="col-md-6">
+					<h2>Events</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-control-wrapper">
+								<input type="text" id="date-start" class="form-control floating-label" placeholder="Start Date">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-control-wrapper">
+								<input type="text" id="date-end" class="form-control floating-label" placeholder="End Date">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<code>
+								<p>Code</p>
+								$('#date-end').bootstrapMaterialDatePicker({ weekStart : 0 });<br />
+								$('#date-start').bootstrapMaterialDatePicker({ weekStart : 0 }).on('change', function(e, date)<br />
+								{<br />
+									$('#date-end').bootstrapMaterialDatePicker('setMinDate', date);<br />
+								});
+							</code>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="related">
+		    <h3>如果你喜欢这个插件，那么你可能也喜欢:</h3>
+		    <a href="http://www.htmleaf.com/html5/SVG/201506232091.html">
+			  <img src="related/1.jpg" width="300" alt="HTML5 SVG超酷雷达扫描式页面切换特效"/>
+			  <h3>HTML5 SVG超酷雷达扫描式页面切换特效</h3>
+			</a>
+			<a href="http://www.htmleaf.com/jQuery/Layout-Interface/201506132027.html">
+			  <img src="related/2.jpg" width="300" alt="jQuery和CSS3超炫3D整屏垂直滚动页面特效"/>
+			  <h3>jQuery和CSS3超炫3D整屏垂直滚动页面特效</h3>
+			</a>
+		</div>
+	</div>
+	
+	<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/material.min.js"></script>
+	<script type="text/javascript" src="js/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-material-datetimepicker.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$('#date').bootstrapMaterialDatePicker
+			({
+				time: false
+			});
+
+			$('#time').bootstrapMaterialDatePicker
+			({
+				date: false,
+				shortTime: true,
+				format: 'HH:mm'
+			});
+
+			$('#date-format').bootstrapMaterialDatePicker
+			({
+				format: 'dddd DD MMMM YYYY - HH:mm'
+			});
+			$('#date-fr').bootstrapMaterialDatePicker
+			({
+				format: 'DD/MM/YYYY HH:mm',
+				lang: 'fr',
+				weekStart: 1, 
+				cancelText : 'ANNULER'
+			});
+
+			$('#date-end').bootstrapMaterialDatePicker
+			({
+				weekStart: 0, format: 'DD/MM/YYYY HH:mm'
+			});
+			$('#date-start').bootstrapMaterialDatePicker
+			({
+				weekStart: 0, format: 'DD/MM/YYYY HH:mm'
+			}).on('change', function(e, date)
+			{
+				$('#date-end').bootstrapMaterialDatePicker('setMinDate', date);
+			});
+
+			$('#min-date').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
+
+			$.material.init()
+		});
+		</script>
+</body>
+</html>

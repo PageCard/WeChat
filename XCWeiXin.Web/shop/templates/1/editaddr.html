@@ -1,0 +1,163 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>新增收货地址</title>
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="/sui/css/sm.css" rel="stylesheet">   
+<link href="/shop/templates/default/css/templates.css" rel="stylesheet" />
+
+</head>
+<body>
+ <div class="page">
+<header class="bar bar-nav">
+<a class="button button-link button-nav pull-left back"  ><span class="icon icon-left"></span>返回</a>
+<a class="icon  pull-right "><span class="infocart icon-cart"> {$cartcount}</span></a>
+<h1 class="title"></h1>
+</header>
+<vt:template id="_bottom" file="_bottom.html" charset="utf-8" />
+
+  <div class="content">
+   <form method="post" action="editaddr.aspx?myact=editAddr" >
+       <input type="hidden" value="{$openid}" id="openid" name="openid">
+       <input type="hidden" value="{$wid}" id="wid" name="wid">
+       <input type="hidden" value="{$frompage}" id="frompage" name="frompage">
+  <div class="list-block">
+      <ul>
+        <!-- Text inputs -->
+        <li>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-me"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">姓名：</div>
+              <div class="item-input">
+                <input type="text" placeholder="收件人的姓名" id="username" name="name" value="{$addrinfo.contractPerson}" >
+              </div>
+            </div>
+          </div>
+        </li>       
+        <li>
+              <div class="item-content">
+              <div class="item-media"><i class="icon icon-browser"></i></div>
+                <div class="item-inner">
+                  
+                  <div class="item-title label">省市区</div>
+                  <div class="item-input">
+                    <input type="text" placeholder="" id='city-picker' />
+                  </div>
+                </div>
+              </div>
+            </li>
+             <li>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-edit"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">详细地址：</div>
+              <div class="item-input">
+                <input type="text" placeholder="收货的地址" id="add" name="address"  value="{$addrinfo.addrDetail}">
+              </div>
+            </div>
+          </div>
+        </li>        
+        <li>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-phone"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">联系电话</div>
+              <div class="item-input">
+                <input type="text" placeholder="可以联系到您的电话" id="phone" name="mobile"  value="{$addrinfo.tel}" >
+              </div>
+            </div>
+          </div>
+        </li>       
+        <!-- Switch (Checkbox) -->
+        <li style=" display:none">
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-star"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">默认地址</div>
+              <div class="item-input">
+                <label class="label-switch">
+                  <input type="checkbox" id="isindex" name="isindex">
+                  <div class="checkbox"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+     <input type="hidden" value="" id="pvid" name="pvid">
+     <input type="hidden" value="" id="ctid" name="ctid">
+     <input type="hidden" value="" id="regionId" name="regionId">
+<div class="content-block">      
+<input type ="submit" value ="提交地址" class="button button-big button-fill button-danger" onclick ="return revalid();">    
+</div>
+</form>
+  </div>
+  
+  </div>
+
+
+
+
+
+
+
+<script src="/sui/js/zepto.js"></script>
+<script src="/sui/js/sm.min.js"></script>
+<script src="/sui/js/sm-extend.js"></script>
+<script src="/sui/js/sm-city-picker.js"></script>
+<script src="/shop/templates/default/js/xcform.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {   
+        $("#bartab04").addClass("active");
+        $("#city-picker").cityPicker({
+            value: ['{$addrinfo.province}', '{$addrinfo.city}', '{$addrinfo.area}']
+        });
+    })
+ function revalid() {
+
+     var username = $("#username").val();
+     var citypicker = $("#city-picker").val();
+     var add = $("#add").val();
+     var phone = $("#phone").val();
+     var isindex = $("#isindex").attr("checked");
+     
+     if (!xctxet(username, 2, 15)) {
+         $.toast("姓名输入不正确");
+         return false;
+     }
+     if (!xctxet(citypicker, 3, 20)) {
+         $.toast("请选择城市");
+         return false;
+     }
+     if (!xctxet(add, 3, 20)) {
+         $.toast("请输入地址");
+         return false;
+     }
+     if (!xcphone(phone)) {
+         $.toast("手机号码输入不正确");
+         return false;
+     }
+     var cityStr = citypicker.split(" ");                                          //字符串转化为数组
+     $("#pvid").val(cityStr[0]);
+     $("#ctid").val(cityStr[1]);
+     $("#regionId").val(cityStr[2]);
+     ///
+ }
+
+</script>
+
+
+</body>
+</html>
+
