@@ -34,7 +34,8 @@
     </IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>
     </IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
+    <IISExpressUseClassicPipelineMode>
+    </IISExpressUseClassicPipelineMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -82,33 +83,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>App_Data\backBIN\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Senparc.Weixin, Version=4.5.16.24858, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Senparc.Weixin, Version=4.5.22.19043, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WeiXinMPSDK-master\DotNetFramework\Senparc.Weixin.MP.BuildOutPut\Senparc.Weixin.dll</HintPath>
+      <HintPath>C:\Users\Administrator\Desktop\WeiXinMPSDK-master(2)\WeiXinMPSDK-master\src\Senparc.Weixin\Senparc.Weixin\obj\Debug\Senparc.Weixin.dll</HintPath>
     </Reference>
-    <Reference Include="Senparc.Weixin.MP, Version=13.6.11.25799, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Senparc.Weixin.MP, Version=14.1.0.16372, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Data\nwqSDK\Senparc.Weixin.MP.dll</HintPath>
-    </Reference>
-    <Reference Include="Senparc.Weixin.MP.MvcExtension, Version=4.0.0.29881, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Data\backBIN\Senparc.Weixin.MP.MvcExtension.dll</HintPath>
-    </Reference>
-    <Reference Include="Senparc.Weixin.MP.Sample, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Data\backBIN\Senparc.Weixin.MP.Sample.dll</HintPath>
-    </Reference>
-    <Reference Include="Senparc.Weixin.MP.Sample.CommonService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Data\backBIN\Senparc.Weixin.MP.Sample.CommonService.dll</HintPath>
-    </Reference>
-    <Reference Include="Senparc.Weixin.Open, Version=1.1.0.28083, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Data\backBIN\Senparc.Weixin.Open.dll</HintPath>
-    </Reference>
-    <Reference Include="Senparc.Weixin.QY, Version=3.0.2.27758, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>App_Data\backBIN\Senparc.Weixin.QY.dll</HintPath>
+      <HintPath>C:\Users\Administrator\Desktop\WeiXinMPSDK-master(2)\WeiXinMPSDK-master\src\Senparc.Weixin.MP\Senparc.Weixin.MP\obj\Debug\Senparc.Weixin.MP.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>

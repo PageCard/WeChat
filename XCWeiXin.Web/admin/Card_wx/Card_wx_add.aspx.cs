@@ -291,8 +291,8 @@ namespace XCWeiXin.Web.admin.Card_wx
                         var data = new Senparc.Weixin.MP.AdvancedAPIs.Card.Card_CashData()
                         {
                             base_info = _BaseInfo,
-                            least_cost = decimal.Parse(least_cost.Text),
-                            reduce_cost = decimal.Parse(reduce_cost.Text)
+                            least_cost = int.Parse(least_cost.Text),
+                            reduce_cost = int.Parse(reduce_cost.Text)
                         };
 
                         BLL.Card_wx.Card_BaseInfo Add = new BLL.Card_wx.Card_BaseInfo();

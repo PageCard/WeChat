@@ -84,7 +84,7 @@ namespace XCWeiXin.Web.hugongll
                 remark = new TemplateDataItem("请保持电话通畅，服务人员会和您取得联系，提供快捷舒心的服务！")
             };
 
-            var result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openId, templateId, "#FF0000", "http://www.hugongll.com/hugongll/order.aspx", testData);
+            var result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openId, templateId, "http://www.hugongll.com/hugongll/order.aspx", testData);
            
             var openIds = "oZg9IwiZ4xGUBDtjT3lvrB4JV9Vo";//换成已经关注用户的openId
             templateId = "6oFH4updt21Zfwbks6O7erhZRlOI6jS3Yju8l9qFsw4";//换成已经在微信后台添加的模板Id
@@ -99,7 +99,7 @@ namespace XCWeiXin.Web.hugongll
                 keyword5 = new TemplateDataItem(modle.Adress),
                 remark = new TemplateDataItem("请与以上用户联系，并回访")
             };
-            result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openIds, templateId, "#FF0000", "http://www.hugongll.com/hugongll/order.aspx", testData);
+            result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openIds, templateId,  "http://www.hugongll.com/hugongll/order.aspx", testData);
 
 
 

@@ -77,7 +77,7 @@ namespace XCWeiXin.Web.api.oauth.Weixin_oauth
                       keyword3 = new TemplateDataItem("信息通知"),
                       remark = new TemplateDataItem("你刚授权给了+"+ MyCommFun.getWebSite()+"")
                   };
-                  var result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openId, templateId, "#FF0000", "http://www.hugongll.com/hugongll/index.aspx", testData);
+                  var result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openId, templateId, "http://www.hugongll.com/hugongll/index.aspx", testData);
 
                 
               }

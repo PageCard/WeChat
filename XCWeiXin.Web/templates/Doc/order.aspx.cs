@@ -105,7 +105,7 @@ namespace XCWeiXin.Web.templates.Doc
                 keyword5=new TemplateDataItem(model.By_adress),
                 remark = new TemplateDataItem("请联系你的客户，并及时提供服务")
             };
-            var result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openId, templateId, "#FF0000", "http://www.hugongll.com/templates/Doc/Hugo_list/Login.aspx", testData);
+            var result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openId, templateId,  "http://www.hugongll.com/templates/Doc/Hugo_list/Login.aspx", testData);
 
 
         }
@@ -136,7 +136,7 @@ namespace XCWeiXin.Web.templates.Doc
                 keyword5=new TemplateDataItem(model.By_adress),
                 remark = new TemplateDataItem(DateTime.Now.ToString())
             };
-            var result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openId, templateId, "#FF0000", "http://www.hugongll.com/templates/Doc/order.aspx", testData);
+            var result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openId, templateId,  "http://www.hugongll.com/templates/Doc/order.aspx", testData);
 
 
         }

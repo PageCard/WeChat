@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Senparc.Weixin.MP;
 using Senparc.Weixin.MP.Helpers;
 using Senparc.Weixin.MP.CommonAPIs;
+using Senparc.Weixin.MP.Containers;
 
 namespace XCWeiXin.Web.hugongll
 {
