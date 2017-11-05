@@ -194,6 +194,17 @@ namespace XCWeiXin.WeiXinComm.CustomMessageHandler
         {
             return EventProcess(6, requestMessage);
         }
+        public override IResponseMessageBase OnEvent_LocationSelectRequest(RequestMessageEvent_Location_Select requestMessage)
+        {
+            var responseMessage = this.CreateResponseMessage<ResponseMessageText>();
+            responseMessage.Content = "ff";
+            return responseMessage;
+           
+          
+          
+           
+        }
+
 
         /// <summary>
         /// 退订

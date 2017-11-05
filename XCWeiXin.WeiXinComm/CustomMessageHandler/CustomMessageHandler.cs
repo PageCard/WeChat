@@ -284,27 +284,27 @@ namespace XCWeiXin.WeiXinComm.CustomMessageHandler
         /// </summary>
         public override IResponseMessageBase OnVoiceRequest(RequestMessageVoice requestMessage)
         {
-            WeiXCommFun bb = new WeiXCommFun();
-            int apiid = bb.getApiid();
-            IResponseMessageBase reponseMessage=null;
+            //WeiXCommFun bb = new WeiXCommFun();
+            //int apiid = bb.getApiid();
+            //IResponseMessageBase reponseMessage=null;
             //上传缩略图
-            string file = MyCommFun.GetRootPath() + "/upload/thumb.jpg";
-            var accessToken = stoce();
-            var uploadResult = MediaApi.UploadTemporaryMedia(accessToken, UploadMediaFileType.thumb,
-                                                     file);
+            //string file = MyCommFun.GetRootPath() + "/upload/thumb.jpg";
+            //var accessToken = stoce();
+            //var uploadResult = MediaApi.UploadTemporaryMedia(accessToken, UploadMediaFileType.thumb,
+            //                                         file);
             //设置音乐信息
-            var strongResponseMessage = CreateResponseMessage<ResponseMessageMusic>();
-            reponseMessage = strongResponseMessage;
-            strongResponseMessage.Music.Title = "南山南";
-            strongResponseMessage.Music.Description = "张强林";
-            strongResponseMessage.Music.MusicUrl =  MyCommFun.getWebSite()+"/nsn.mp3";
-            strongResponseMessage.Music.HQMusicUrl = MyCommFun.getWebSite()+"/nsn.mp3";
-            strongResponseMessage.Music.ThumbMediaId = uploadResult.thumb_media_id;
-            return reponseMessage;
-           
-            //var responseMessage = this.CreateResponseMessage<ResponseMessageText>();
-            //responseMessage.Content = "语音消息已收到";
-            //return responseMessage;
+            //var strongResponseMessage = CreateResponseMessage<ResponseMessageMusic>();
+            //reponseMessage = strongResponseMessage;
+            //strongResponseMessage.Music.Title = "南山南";
+            //strongResponseMessage.Music.Description = "张强林";
+            //strongResponseMessage.Music.MusicUrl =  MyCommFun.getWebSite()+"/nsn.mp3";
+            //strongResponseMessage.Music.HQMusicUrl = MyCommFun.getWebSite()+"/nsn.mp3";
+            //strongResponseMessage.Music.ThumbMediaId = uploadResult.thumb_media_id;
+            //return reponseMessage;
+
+            var responseMessage = this.CreateResponseMessage<ResponseMessageText>();
+            responseMessage.Content =requestMessage.Recognition;
+            return responseMessage;
         }
 
 
@@ -316,7 +316,7 @@ namespace XCWeiXin.WeiXinComm.CustomMessageHandler
         {
 
             var responseMessage = CreateResponseMessage<ResponseMessageText>();
-            responseMessage.Content = "客服" + requestMessage.KfAccount + "为你服务！";
+            responseMessage.Content = "客服" + requestMessage.KfAccount.ToString() + "为你服务！";
             return responseMessage;
         }
         /// <summary>
@@ -325,7 +325,9 @@ namespace XCWeiXin.WeiXinComm.CustomMessageHandler
         /// <returns></returns>
         public override IResponseMessageBase OnEvent_Kf_Close_SessionRequest(RequestMessageEvent_Kf_Close_Session requestMessage)
         {
-            return DefaultResponseMessage(requestMessage);
+            var responseMessage = CreateResponseMessage<ResponseMessageText>();
+            responseMessage.Content = "当前会话结束，感谢您的来访！祝您生活愉快！";
+            return responseMessage;
         }
 
         /// <summary>
@@ -334,7 +336,9 @@ namespace XCWeiXin.WeiXinComm.CustomMessageHandler
         /// <returns></returns>
         public override IResponseMessageBase OnEvent_Kf_Switch_SessionRequest(RequestMessageEvent_Kf_Switch_Session requestMessage)
         {
-            return DefaultResponseMessage(requestMessage);
+            var responseMessage = CreateResponseMessage<ResponseMessageText>();
+            responseMessage.Content = "当前会话已转接到新客户！";
+            return responseMessage;
         }
 
 

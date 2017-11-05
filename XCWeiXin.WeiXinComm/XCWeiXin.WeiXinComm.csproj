@@ -47,13 +47,13 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\MxWeiXinPF.Web\bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Senparc.Weixin, Version=4.5.22.27995, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Senparc.Weixin, Version=4.17.0.37232, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\Administrator\Desktop\WeiXinMPSDK-master(2)\WeiXinMPSDK-master\src\Senparc.Weixin\Senparc.Weixin\obj\Debug\Senparc.Weixin.dll</HintPath>
+      <HintPath>C:\Users\Administrator\Desktop\WeiXinMPSDK现用版本\WeiXinMPSDK-master\src\Senparc.Weixin\Senparc.Weixin\bin\Debug\Senparc.Weixin.dll</HintPath>
     </Reference>
-    <Reference Include="Senparc.Weixin.MP, Version=14.1.0.40214, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Senparc.Weixin.MP, Version=14.8.0.37301, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\Administrator\Desktop\WeiXinMPSDK-master(2)\WeiXinMPSDK-master\src\Senparc.Weixin.MP\Senparc.Weixin.MP\obj\Debug\Senparc.Weixin.MP.dll</HintPath>
+      <HintPath>C:\Users\Administrator\Desktop\WeiXinMPSDK现用版本\WeiXinMPSDK-master\src\Senparc.Weixin.MP\Senparc.Weixin.MP\obj\Debug\Senparc.Weixin.MP.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
