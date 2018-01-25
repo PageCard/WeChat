@@ -62,7 +62,7 @@ namespace XCWeiXin.Web.attr_shop
                 drop1.DataSource = vv;
                 drop1.DataValueField = vv.Columns[0].ColumnName;
                 drop1.DataTextField = vv.Columns[1].ColumnName;
-                drop1.Items.Insert(0, new ListItem("请选择商品类型", "0"));
+                
                 drop1.DataBind();
 
             

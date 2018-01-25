@@ -74,7 +74,7 @@
                     <dt>可选商品属性列表</dt>
                     <dd>
                          <div class="rule-single-select">
-                        <asp:DropDownList runat="server" ID="drop1"  datatype="*" sucmsg=" "  ></asp:DropDownList>
+                        <asp:DropDownList runat="server" ID="drop1"   datatype="*" sucmsg=" "  ></asp:DropDownList>
                         
                                </div>
                     </dd>
